@@ -9989,7 +9989,6 @@ header .header-top a:hover {
 }
 header .header-présentation {
   background-color: #f3e9f1;
-  color: #c697bd;
   margin-top: 40px;
   text-align: center;
   height: 150px;
@@ -10061,13 +10060,12 @@ main {
   margin-bottom: 40px;
 }
 main a {
-  color: #c697bd;
   margin: 20px;
   width: 25%;
   height: 380px;
   display: flex;
   justify-content: center;
-  box-shadow: 3px 4px 3px #f3e9f1;
+  color: black;
 }
 main a:hover {
   box-shadow: 3px 4px 3px #c697bd;

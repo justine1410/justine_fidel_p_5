@@ -1,0 +1,98 @@
+header{
+    font-family: cursive;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    .header-top{
+        background-color: $primary;
+        width: 100%;
+        height: 100px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        img{
+            height: 100%;
+            margin: 20px;
+        }
+        .link{
+            margin-right:20px;
+        }
+        a{
+            color:$primary-darken; 
+            margin:5px;
+            &:hover{
+                background-color: $primary-hover;
+                border-radius: 20px;
+                text-decoration: none;
+                padding:10px;
+            }
+        }
+
+    }  
+    .header-présentation{
+        background-color: $primary;
+        
+        margin-top:40px;
+        text-align: center;
+        height: 150px;
+        border:solid;
+        border-radius: 20px;
+        border-color: $primary;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        h2{
+            line-height:2;
+        }
+
+    }
+}
+.confirmation{
+    display:flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $primary;
+    border-radius:20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height:500px;
+    padding:10px;
+    .merci{
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:750px){
+    header{
+        font-family: cursive;
+        .header-top{
+            flex-wrap: wrap;
+            align-items: center;
+            height:150px;
+            margin-bottom:20px;
+            img{
+                width: 50%;
+                height: 50%;
+                position: relative;
+                left:20%;
+            }
+            .link{
+                display: flex;
+                justify-content: space-around;
+                width: 90%;
+            }
+        }  
+        .header-présentation{
+           position: initial;
+           width: 100%;
+           height: 200px;
+           margin: 0;
+           h2{
+               line-height: 1.2;
+           }
+    
+        }
+    }
+}

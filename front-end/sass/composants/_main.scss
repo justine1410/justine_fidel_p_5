@@ -7,13 +7,13 @@ main{
     margin-bottom:40px;
     
     a{
-        color:$primary-darken;
         margin:20px;
         width: 25%;
         height:380px;
         display: flex;
         justify-content: center;
-        box-shadow: 3px 4px 3px $primary;
+        color: black;
+        
         &:hover{
             box-shadow: 3px 4px 3px $primary-darken;
             text-decoration: none;
