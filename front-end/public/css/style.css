@@ -10293,10 +10293,16 @@ header .header-acceuil-présentation a {
   color: black;
   margin-top: 20px;
   font-size: 2em;
+  border: solid;
+  width: 20%;
+  border-radius: 20px;
+  border-color: #c697bd;
+  box-shadow: 3px 4px 3px #c697bd;
 }
 header .header-acceuil-présentation a:hover {
   text-decoration: none;
   transform: scale(1.2);
+  background-color: #8f4e82;
 }
 
 /*# sourceMappingURL=style.css.map */
