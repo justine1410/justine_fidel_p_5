@@ -10062,10 +10062,10 @@ main {
 main a {
   margin: 20px;
   width: 25%;
-  height: 380px;
   display: flex;
   justify-content: center;
   color: black;
+  height: 350px;
 }
 main a:hover {
   box-shadow: 3px 4px 3px #c697bd;
@@ -10080,6 +10080,7 @@ main figure {
   border-color: #f3e9f1;
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 main figure:hover {
   background-color: #8f4e82;
@@ -10127,11 +10128,16 @@ main figure figcaption {
 #produit .produit-texte select:active {
   border-color: #c697bd;
 }
+#produit .produit-texte .commande {
+  height: 50px;
+}
 #produit .produit-texte button {
   margin-bottom: 20px;
   color: #c697bd;
   background-color: #f3e9f1;
   border: solid;
+  height: 100%;
+  margin: 0;
   border-radius: 20px;
   border-color: #c697bd;
   box-shadow: 1px 2px 3px #f3e9f1;

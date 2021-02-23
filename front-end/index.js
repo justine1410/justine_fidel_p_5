@@ -8,7 +8,6 @@ function getProduits(uri){
       var resultat = JSON.parse(xhr.responseText); 
       console.log(resultat);
       afficheProduits(resultat);
-     
     }
   };
   xhr.send();
@@ -32,5 +31,7 @@ function afficheProduits(produits){
 
 function getDetailProduit(){
   var t = window.location.href.split('?id=');
+
   var id = t[1];
+ 
 };

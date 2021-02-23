@@ -11,12 +11,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   </head>
-  <body onload="getDetailProduit()">
+  <body onload="getDetailProduit(description)">
     <header>
         <div class="header-top">
             <img src="images/logo.png" alt="logo de orinoco"/>
             <div class="link">
-              <a href="index.html">Acceuil</a>
+              <a href="/index.html">Acceuil</a>
               <a href="ours.html"> Ours</a>
               <a href="camera.html">Caméras</a>
               <a href="Meuble.html">Meuble</a>
@@ -24,29 +24,30 @@
           </div>
         </div>
         <div class="header-présentation">
-            <h2>Nos ours peuvent être décliné dans 3 colorie</h2>
+            <h2>Produit choisi</h2>
         </div>
     </header>
-    <main>
+    <main id="descriptions">
       <div id="produit">
-        <img src="front-end/images/teddy_1.jpg" alt="tedy.1"/>
+        <img src="images/teddy_1.jpg" alt="tedy.1"/>
         <div class="produit-texte">
-          <h3 id="titleTeddy" >Baloo</h3>
-          <p id="prixteddy">15€</p>
-          <p id="descriptteddy">Le Content</p>
+          <h3 >Baloo</h3>
+          <p >15€</p>
+          <p >Le Content</p>
           <div class=" perso">
             <label for="perso">Choix de votre couleur:</label><br/>
             <select name="perso" id="perso">
-              <option id="persoteddi11" value="white">Blanc</option>
+              <option value="white">Blanc</option>
               <option value="beige">Beige</option>
               <option value="noir">Noir</option>
             </select>
           </div>
-          <a href="panier.html">
+          <a class="commande" href="panier.html">
             <button type="submit"> Ajouter au panier</button>
           </a>
         </div>
       </div>
+
     </main>
     <footer>
       <ul>
