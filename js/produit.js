@@ -78,7 +78,7 @@ const urlFurn="http://localhost:3000/api/furniture/"+id;
                     quantite: 1,
                     prix:resultat.price/100,
                 }
-                console.log(optionsProduit)
+                //console.log(optionsProduit)
             });
         } 
         catch(err){
