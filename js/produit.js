@@ -13,7 +13,6 @@ const urlCam="http://localhost:3000/api/cameras/"+id;
 const urlFurn="http://localhost:3000/api/furniture/"+id;
 
 //promesse teddy
-function produit(){
     fetch(urlTeddy)
     .then(async (response)=>{
         try{
@@ -87,8 +86,7 @@ function produit(){
             
         }
     });
-}
-produit();
+
 //promesse camera
 fetch(urlCam)
 .then(async (response)=>{
