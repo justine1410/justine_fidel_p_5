@@ -1,32 +1,4 @@
 @charset "UTF-8";
-@keyframes menu {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.teddy_1 {
-  animation: menu 1s;
-}
-
-.teddy_2 {
-  animation: menu 3s;
-}
-
-.teddy_3 {
-  animation: menu 5s;
-}
-
-.teddy_4 {
-  animation: menu 7s;
-}
-
-.teddy_5 {
-  animation: menu 9s;
-}
-
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10051,7 +10023,7 @@ header .header-présentation h2 {
     line-height: 1.2;
   }
 }
-main {
+#list-produits {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -10059,7 +10031,7 @@ main {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-main a {
+#list-produits a {
   margin: 20px;
   width: 25%;
   display: flex;
@@ -10067,12 +10039,12 @@ main a {
   color: black;
   height: 350px;
 }
-main a:hover {
+#list-produits a:hover {
   box-shadow: 3px 4px 3px #c697bd;
   text-decoration: none;
   transform: scale(1.2);
 }
-main figure {
+#list-produits figure {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10082,16 +10054,16 @@ main figure {
   height: 100%;
   margin: 0;
 }
-main figure:hover {
+#list-produits figure:hover {
   background-color: #8f4e82;
 }
-main figure img {
+#list-produits figure img {
   border-bottom: solid;
   border-color: #f3e9f1;
   width: 100%;
   height: 50%;
 }
-main figure figcaption {
+#list-produits figure figcaption {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10281,9 +10253,9 @@ header img {
 header .header-acceuil-présentation {
   background-color: #f3e9f1;
   margin-top: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   text-align: center;
-  height: 400px;
+  height: 150px;
   border: solid;
   border-radius: 20px;
   border-color: #f3e9f1;
@@ -10294,6 +10266,21 @@ header .header-acceuil-présentation {
   display: flex;
   align-items: center;
   box-shadow: 3px 4px 3px #c697bd;
+}
+header .header-acceuil-présentation .choix {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+header .header-acceuil-présentation .choix p {
+  border-color: #c697bd;
+  box-shadow: 3px 2px 2px #c697bd;
+}
+header .header-acceuil-présentation .choix p:hover {
+  background-color: #8f4e82;
+  box-shadow: 3px 4px 3px #c697bd;
+  transform: scale(1.2);
 }
 header .header-acceuil-présentation a {
   color: black;
@@ -10309,6 +10296,12 @@ header .header-acceuil-présentation a:hover {
   text-decoration: none;
   transform: scale(1.2);
   background-color: #8f4e82;
+}
+header #list-produits {
+  margin-top: 10px;
+}
+header #list-produits img {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

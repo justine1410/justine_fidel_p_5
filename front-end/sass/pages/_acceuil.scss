@@ -18,9 +18,9 @@ header{
     .header-acceuil-présentation{
         background-color: $primary;
         margin-top:40px;
-        margin-bottom:100px;
+        margin-bottom:20px;
         text-align: center;
-        height: 400px;
+        height: 150px;
         border:solid;
         border-radius: 20px;
         border-color: $primary;
@@ -31,6 +31,22 @@ header{
         display: flex;
         align-items: center;
         box-shadow: 3px 4px 3px $primary-darken;
+        .choix{
+            display:flex;
+            width:80%;
+            justify-content: space-around;
+            margin-top:10px;
+            p{
+                
+                border-color: $primary-darken;
+                box-shadow: 3px 2px 2px $primary-darken;
+                &:hover{
+                    background-color: $primary-hover;
+                    box-shadow: 3px 4px 3px $primary-darken;
+                    transform:scale(1.2);
+                }
+            }
+        }
         a{
             color:black;
             margin-top:20px;
@@ -45,6 +61,12 @@ header{
                 transform:scale(1.2);
                 background-color: $primary-hover;
             }
+        }
+    }
+    #list-produits{
+        margin-top: 10px;
+        img{
+          margin:0
         }
     }
 
