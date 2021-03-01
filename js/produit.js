@@ -62,63 +62,63 @@ const choixProduits = document.getElementById("list-produits");
       `
   };
 
-  //injection html produit et option
+    //injection html option des produits
   const positionOption = document.querySelector("#perso")
   positionOption.innerHTML = structureOptions
-   //......récupération des donnée et envoie au panier......................//
-   const idForm = document.querySelector("#perso");
 
-   //séléction du btn ajouter
-   const btnEnvoi = document.querySelector("#btn_envoi")
-   
-    //ecouter le btn et envoyer le panier
-    btnEnvoi.addEventListener("click", (event)=>{
-        event.preventDefault();
+  //......récupération des donnée et envoie au panier......................//
+  const idForm = document.querySelector("#perso");
+  //séléction du btn ajouter
+  const btnEnvoi = document.querySelector("#btn_envoi")
+  
+  //ecouter le btn et envoyer le panier
+  btnEnvoi.addEventListener("click", (event)=>{
+    event.preventDefault();
+    const choixForm =idForm.value;
+    console.log(choixForm)
+      //recuperation des valeurs du formulaire
+    optionsProduit = {
+        name:resultat.name,  
+        idProduit : resultat._id,  
+        perso:choixForm,
+        quantite: 1,
+        prix:resultat.price/100,
+    };
+    console.log(btnEnvoi)
+            //..........................Le local Storage.................
 
-        const choixForm =idForm.value;
-        console.log(choixForm)
-        //recuperation des valeurs du formulaire
-        optionsProduit = {
-            name:resultat.name,  
-            idProduit : resultat._id,  
-            perso:choixForm,
-            quantite: 1,
-            prix:resultat.price/100,
-        };
-        console.log(btnEnvoi)
-              //..........................Le local Storage.................
+            //JSON.parse convertit les données au foramt JSON en objet JAVASCRIPT
+            //variable on on va mettre les key et les values qui sont dans le local storage
+    let produitStorage = JSON.parse (localStorage.getItem("produit"));
+    console.log(produitStorage);
 
-              //JSON.parse convertit les données au foramt JSON en objet JAVASCRIPT
-              //variable on on va mettre les key et les values qui sont dans le local storage
-        let produitStorage = JSON.parse (localStorage.getItem("produit"));
-        console.log(produitStorage);
+              //fonction fenêtre popup
+    const popConfirm =() =>{
+      if(window.confirm(`${resultat.name} option :${choixForm} a bien été ajouté au panier 
+      Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
+        window.location.href = "panier.html";
 
-                //fonction fenêtre popup
-            const popConfirm =() =>{
-              if(window.confirm(`${resultat.name} option :${choixForm} a bien été ajouté au panier 
-              Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
-                window.location.href = "panier.html";
+      }else{
+        window.location.href = "/index.html";
+      }
+    }
 
-              }else{
-                window.location.href = "/index.html";
-              }
-            }
-                //s'il y a deja de produits d'enregistré
-        if(produitStorage){
-          produitStorage.push(optionsProduit);
-          localStorage.setItem("produit", JSON.stringify(produitStorage));
-          console.log(produitStorage);
-          popConfirm();
-          console.log("ok")
-        }
-        //s'il y a pas de produit
-        else{
-            produitStorage =[];
-            produitStorage.push(optionsProduit);
-            localStorage.setItem("produit", JSON.stringify(produitStorage));
-            popConfirm();
+    const ajoutProduitLocalStorage=()=>{
+      produitStorage.push(optionsProduit);
+      localStorage.setItem("produit", JSON.stringify(produitStorage));
+    };
 
-            console.log(produitStorage)
-        }
-    });
+              //s'il y a deja de produits d'enregistré
+    if(produitStorage){
+      ajoutProduitLocalStorage();
+      popConfirm();
+      console.log("ok")
+    }
+      //s'il y a pas de produit
+    else{
+        produitStorage =[];
+        ajoutProduitLocalStorage();
+        popConfirm();
+    }
+  });
  };

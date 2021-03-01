@@ -71,3 +71,33 @@ header{
     }
 
 }
+
+                /*****style mobile*****/
+@media screen and (min-width:320px) and (max-width:750px){
+    header .header-acceuil-présentation{
+        height: 250px;
+        width: 100%;
+        .choix{
+            width: 100%;
+            flex-wrap: wrap;
+
+            p{
+                width: 40%;;
+            }
+        }
+        
+    }
+    main #list-produits{
+        display:flex;
+        flex-direction: column;
+        margin:0;
+        a{
+            width: 90%;
+            margin:5px;
+        }
+    }
+    footer ul{
+        height: 150px;
+    }
+
+};

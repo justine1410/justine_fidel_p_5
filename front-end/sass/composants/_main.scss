@@ -78,23 +78,31 @@
             }
             
         }
+        p{
+            margin:10px;
+        }
         .commande{
             height:50px;
         }
-        button{
-            margin-bottom:20px;
-            color : $primary-darken;
-            background-color: $primary;
-            border:solid;
-            height:100%;
-            margin:0;
-            border-radius: 20px;;
-            border-color: $primary-darken;
-            box-shadow: 1px 2px 3px $primary;
-            &:hover{
-               background-color: $primary-hover;
-               transform:scale(1.2);
+        a{
+            width: 50%;
+            button{
+                margin-bottom:20px;
+                color : $primary-darken;
+                background-color: $primary;
+                border:solid;
+                height:100%;
+                width: 100%;
+                margin:0;
+                border-radius: 20px;;
+                border-color: $primary-darken;
+                box-shadow: 1px 2px 3px $primary;
+                &:hover{
+                   background-color: $primary-hover;
+                   transform:scale(1.2);
+                }
             }
+    
         }
     }
 }
@@ -159,33 +167,19 @@
             background-color: $primary-hover;
         }
 }
+
+                    /*****style mobile*****/
 @media screen and (min-width:320px) and (max-width:750px){
-    main{
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        
-        figure{
-            display:flex;
-            flex-direction: column;
-            align-items:center;
-            border:solid;
-            border-color: $primary;
-            width: 100%;
-            img{
-                width: 100%;
-                height:70%;
-                border-bottom:solid;
-                border-color: $primary;
-                border-right:none;
-            }
+    main #produit{
+        width: 90%;
+        a{
+            width: 50%;
+        }
+        .produit-texte select{
+            margin-left:10%;
         }
     }
-    .produit{
-        width: 80%;
-    }
-
-}
+};
 
 
 

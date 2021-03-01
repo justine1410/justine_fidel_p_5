@@ -10100,21 +10100,28 @@ header .header-présentation h2 {
 #produit .produit-texte select:active {
   border-color: #c697bd;
 }
+#produit .produit-texte p {
+  margin: 10px;
+}
 #produit .produit-texte .commande {
   height: 50px;
 }
-#produit .produit-texte button {
+#produit .produit-texte a {
+  width: 50%;
+}
+#produit .produit-texte a button {
   margin-bottom: 20px;
   color: #c697bd;
   background-color: #f3e9f1;
   border: solid;
   height: 100%;
+  width: 100%;
   margin: 0;
   border-radius: 20px;
   border-color: #c697bd;
   box-shadow: 1px 2px 3px #f3e9f1;
 }
-#produit .produit-texte button:hover {
+#produit .produit-texte a button:hover {
   background-color: #8f4e82;
   transform: scale(1.2);
 }
@@ -10185,30 +10192,16 @@ header .header-présentation h2 {
   background-color: #8f4e82;
 }
 
+/*****style mobile*****/
 @media screen and (min-width: 320px) and (max-width: 750px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  main #produit {
+    width: 90%;
   }
-  main figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid;
-    border-color: #f3e9f1;
-    width: 100%;
+  main #produit a {
+    width: 50%;
   }
-  main figure img {
-    width: 100%;
-    height: 70%;
-    border-bottom: solid;
-    border-color: #f3e9f1;
-    border-right: none;
-  }
-
-  .produit {
-    width: 80%;
+  main #produit .produit-texte select {
+    margin-left: 10%;
   }
 }
 footer ul {
@@ -10302,6 +10295,35 @@ header #list-produits {
 }
 header #list-produits img {
   margin: 0;
+}
+
+/*****style mobile*****/
+@media screen and (min-width: 320px) and (max-width: 750px) {
+  header .header-acceuil-présentation {
+    height: 250px;
+    width: 100%;
+  }
+  header .header-acceuil-présentation .choix {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  header .header-acceuil-présentation .choix p {
+    width: 40%;
+  }
+
+  main #list-produits {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  main #list-produits a {
+    width: 90%;
+    margin: 5px;
+  }
+
+  footer ul {
+    height: 150px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
