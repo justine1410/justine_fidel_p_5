@@ -12,7 +12,7 @@ function affichPanier(produits){
             <div class="panier-texte">
                 <h3>${element.name}</h3>
                 <p>Qté :${element.quantite} </p>
-                <p>${element.perso}
+                <p class="descript">${element.perso}
                 <p>${element.prix}€</p>
             </div>
         </div>

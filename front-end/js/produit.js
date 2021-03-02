@@ -40,7 +40,7 @@ const choixProduits = document.getElementById("list-produits");
         <div class="produit-texte">
         <h3 >${resultat.name}</h3>
         <p >${resultat.price/100}€</p>
-        <p >${resultat.description}</p>
+        <p class="descript">${resultat.description}</p>
         <div class=" perso">
             <label for="perso">Choix de votre couleur:</label><br/>
             <select name="perso" id="perso">

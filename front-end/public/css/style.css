@@ -10147,6 +10147,10 @@ header .header-présentation h2 {
   justify-content: space-around;
   align-items: center;
 }
+#panier .panier .panier-texte .descript {
+  width: 20%;
+  text-align: center;
+}
 
 .total {
   border: solid;
