@@ -106,31 +106,34 @@
         }
     }
 }
-.container{
-    width: 90%;
-}
-.panier{
-    border: solid;
-    border-color:$primary-darken;
-    display: flex;
-    width: 50%;
-    margin-top:20px;
+#panier{
+    width: 80%;
+    margin-left: 10%;
     img{
-        width:20%;
-        height:30%;
+        width:15%;
+        border-right: solid;
+        border-color: $primary-darken;
+       
     }
-    .panier-texte{
-        border-left:solid;
+    .panier{
+        display: flex;
+        border: solid;
         border-color:$primary-darken;
-        padding:5px;
-        line-height: 1;
-        color: $primary-darken;
+        margin-top:20px;
+        .panier-texte{
+            display: flex;
+            width: 80%;
+            justify-content: space-around;
+            align-items: center;
+        }
     }
+    
 }
 .total{
     border: solid;
     border-color:$primary-darken;
-    width: 50%;
+    width: 80%;
+    margin-left: 10%;
     display:flex;
     justify-content: space-between;
     margin-top:20px;
@@ -140,6 +143,9 @@
         margin:0;
         color: $primary-darken;
     }
+}
+.container{
+    width: 90%;
 }
 .envoyer button{
     border-radius: 20px;

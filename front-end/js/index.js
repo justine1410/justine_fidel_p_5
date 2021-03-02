@@ -23,7 +23,7 @@ const listeProduits = document.getElementById("list-produits");
  function produit(choix){
    for(i=0; i<choix.length; i++){
      listeProduits.innerHTML = listeProduits.innerHTML+`
-     <a  href="front-end/produit.html?${choix[i]._id}">
+     <a  href="produit.html?${choix[i]._id}">
        <figure>
            <img id="imgteddy1" src=${choix[i].imageUrl} alt="teddy"/>
            <figcaption >

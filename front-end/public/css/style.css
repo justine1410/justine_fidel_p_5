@@ -10126,33 +10126,33 @@ header .header-présentation h2 {
   transform: scale(1.2);
 }
 
-.container {
-  width: 90%;
+#panier {
+  width: 80%;
+  margin-left: 10%;
 }
-
-.panier {
+#panier img {
+  width: 15%;
+  border-right: solid;
+  border-color: #c697bd;
+}
+#panier .panier {
+  display: flex;
   border: solid;
   border-color: #c697bd;
-  display: flex;
-  width: 50%;
   margin-top: 20px;
 }
-.panier img {
-  width: 20%;
-  height: 30%;
-}
-.panier .panier-texte {
-  border-left: solid;
-  border-color: #c697bd;
-  padding: 5px;
-  line-height: 1;
-  color: #c697bd;
+#panier .panier .panier-texte {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .total {
   border: solid;
   border-color: #c697bd;
-  width: 50%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -10162,6 +10162,10 @@ header .header-présentation h2 {
 .total p {
   margin: 0;
   color: #c697bd;
+}
+
+.container {
+  width: 90%;
 }
 
 .envoyer button {

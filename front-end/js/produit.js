@@ -28,7 +28,7 @@ const urlFurn="http://localhost:3000/api/furniture/"+id;
    });
  };
  request(urlTeddy)
-
+ 
 
  //texte à ajouté
 const choixProduits = document.getElementById("list-produits");
@@ -58,7 +58,7 @@ const choixProduits = document.getElementById("list-produits");
   
   for (i=0; i<optionQuantite.length; i++){
       structureOptions =structureOptions+ `
-      <option value=${i}>${optionQuantite[i]}</option>
+      <option value=${optionQuantite[i]}>${optionQuantite[i]}</option>
       `
   };
 
@@ -78,6 +78,7 @@ const choixProduits = document.getElementById("list-produits");
     console.log(choixForm)
       //recuperation des valeurs du formulaire
     optionsProduit = {
+        image:resultat.imageUrl,
         name:resultat.name,  
         idProduit : resultat._id,  
         perso:choixForm,
@@ -87,23 +88,21 @@ const choixProduits = document.getElementById("list-produits");
     console.log(btnEnvoi)
             //..........................Le local Storage.................
 
-            //JSON.parse convertit les données au foramt JSON en objet JAVASCRIPT
             //variable on on va mettre les key et les values qui sont dans le local storage
     let produitStorage = JSON.parse (localStorage.getItem("produit"));
     console.log(produitStorage);
 
               //fonction fenêtre popup
-    const popConfirm =() =>{
+    function popConfirm(){
       if(window.confirm(`${resultat.name} option :${choixForm} a bien été ajouté au panier 
       Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
         window.location.href = "panier.html";
-
       }else{
-        window.location.href = "/index.html";
+        window.location.href = "index.html";
       }
     }
 
-    const ajoutProduitLocalStorage=()=>{
+    function ajoutProduitLocalStorage(){
       produitStorage.push(optionsProduit);
       localStorage.setItem("produit", JSON.stringify(produitStorage));
     };
