@@ -10,7 +10,7 @@ const urlFurn="http://localhost:3000/api/furniture/"+id;
 
 //......................mes options....................//
 function choixoptions(){
-  const option =resultat.lenses;   
+  const option =resultat.colors;   
   let structureOptions = [];
   for (i=0; i<option.length; i++){
     structureOptions =structureOptions+ `
@@ -115,4 +115,4 @@ function request(url){
   });
 };
   
- request(urlCam)
+ request(urlTeddy)
