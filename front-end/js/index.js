@@ -3,23 +3,8 @@ const urlCam= "http://localhost:3000/api/cameras";
 const urlFurn= "http://localhost:3000/api/furniture";
 
 
- function request(url){
-   fetch(url)
-   .then(async (response) =>{
-     try{
-       const resultat = await response.json();
-       console.log(resultat)
-       produit(resultat)
-     }
-     catch (e){
-       console.log(e);
-     }
-   });
- };
-
- //texte à ajouté
+ //..................texte à ajouté....................//
 const listeProduits = document.getElementById("list-produits");
-
  function produit(choix){
    for(i=0; i<choix.length; i++){
      listeProduits.innerHTML = listeProduits.innerHTML+`
@@ -35,9 +20,22 @@ const listeProduits = document.getElementById("list-produits");
      `
    };
  }
+ //.....................requête.........................//
+ function request(url){
+  fetch(url)
+  .then(async (response) =>{
+    try{
+      const resultat = await response.json();
+      console.log(resultat)
+      produit(resultat)
+    }
+    catch (e){
+      console.log(e);
+    }
+  });
+};
 
- /*click pour produit apparaisse*/
-
+//...............click pour produit apparaisse...........//
 let clickTeddy =  document.getElementById("teddyClick")
  clickTeddy.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
@@ -55,7 +53,3 @@ let clickTeddy =  document.getElementById("teddyClick")
    listeProduits.innerHTML= " ";
    request(urlFurn);
  });
-
-
-
-
