@@ -10,13 +10,14 @@ const urlFurn="http://localhost:3000/api/furniture/"+id;
 
 //......................mes options....................//
 function choixoptions(){
-  const option =resultat.colors;     
+  const option =resultat.lenses;   
   let structureOptions = [];
   for (i=0; i<option.length; i++){
     structureOptions =structureOptions+ `
     <option value=${option[i]}>${option[i]}</option>
     `
   };
+
   //insere les options dans le code html
   const positionOption = document.querySelector("#perso")
   positionOption.innerHTML = structureOptions
@@ -54,7 +55,6 @@ function produit(){
   console.log(option)
   //séléction du btn ajouter//
   const btnEnvoi = document.querySelector("#btn_envoi")
-
   //ecouter le btn et envoyer le panier//
   btnEnvoi.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -99,6 +99,7 @@ function produit(){
     }
   });
 };
+
 //.......................requête......................//
 function request(url){
   fetch(url)
@@ -113,11 +114,5 @@ function request(url){
     }
   });
 };
-request(urlTeddy);
-
-
-
-
-
-
-
+  
+ request(urlCam)
