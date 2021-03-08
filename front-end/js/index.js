@@ -1,14 +1,11 @@
-const urlTeddy= "http://localhost:3000/api/teddies";
-const urlCam= "http://localhost:3000/api/cameras";
-const urlFurn= "http://localhost:3000/api/furniture";
-
+const types=["teddies","cameras","furniture"];
 
  //..................texte à ajouté....................//
 const listeProduits = document.getElementById("list-produits");
- function produit(choix){
+ function produit(choix,type){
    for(i=0; i<choix.length; i++){
      listeProduits.innerHTML = listeProduits.innerHTML+`
-     <a  href="produit.html?${choix[i]._id}">
+     <a  href="produit.html?type=${type}&id=${choix[i]._id}">
        <figure>
            <img id="imgteddy1" src=${choix[i].imageUrl} alt="teddy"/>
            <figcaption >
@@ -21,13 +18,13 @@ const listeProduits = document.getElementById("list-produits");
    };
  }
  //.....................requête.........................//
- function request(url){
-  fetch(url)
+ function request(type){
+  fetch("http://localhost:3000/api/"+type)
   .then(async (response) =>{
     try{
       const resultat = await response.json();
-      console.log(resultat)
-      produit(resultat)
+      console.log(resultat,type)
+      produit(resultat,type)
     }
     catch (e){
       console.log(e);
@@ -39,17 +36,17 @@ const listeProduits = document.getElementById("list-produits");
 let clickTeddy =  document.getElementById("teddyClick")
  clickTeddy.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(urlTeddy);
+   request(types[0]);
  })
 
  let clikCam = document.getElementById("camClick")
  clikCam.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(urlCam);
+   request(types[1]);
  });
 
  let clikfurn = document.getElementById("furnClick")
  clikfurn.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(urlFurn);
+   request(types[2]);
  });

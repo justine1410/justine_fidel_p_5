@@ -1,22 +1,40 @@
 //récupération de la l'id dans l'url//
-const recup_id = window.location.search;
-const id = recup_id.slice(1);
+const recup_id = new URLSearchParams(window.location.search).get("id");
+const recup_type = new URLSearchParams(window.location.search).get("type");
 
 //affichage de l'objet//
-const urlTeddy="http://localhost:3000/api/teddies/"+id;
-const urlCam="http://localhost:3000/api/cameras/"+id;
-const urlFurn="http://localhost:3000/api/furniture/"+id;
-
+const url="http://localhost:3000/api/"+recup_type+"/"+recup_id;
 
 //......................mes options....................//
 function choixoptions(){
-  const option =resultat.colors;   
-  let structureOptions = [];
-  for (i=0; i<option.length; i++){
-    structureOptions =structureOptions+ `
-    <option value=${option[i]}>${option[i]}</option>
-    `
-  };
+  let choix= document.getElementById("choix");
+  let structureOptions = [];  
+  if(recup_type === "teddies"){
+    let option = resultat.colors;
+    choix.innerHTML="couleur";
+    for (i=0; i<option.length; i++){
+      structureOptions =structureOptions+ `
+      <option value=${option[i]}>${option[i]}</option>
+      `
+    };  
+  }
+  else if(recup_type === "cameras"){
+    let option = resultat.lenses;
+    choix.innerHTML="lentille";
+    for (i=0; i<option.length; i++){
+      structureOptions =structureOptions+ `
+      <option value=${option[i]}>${option[i]}</option>
+      `
+    };  
+  }  else if(recup_type === "furniture"){
+    let option = resultat.varnish;
+    choix.innerHTML="vernis";
+    for (i=0; i<option.length; i++){
+      structureOptions =structureOptions+ `
+      <option value=${option[i]}>${option[i]}</option>
+      `
+    };  
+  }
 
   //insere les options dans le code html
   const positionOption = document.querySelector("#perso")
@@ -32,7 +50,7 @@ function carteProduit(){
     <p >${resultat.price/100}€</p>
     <p class="descript">${resultat.description}</p>
     <div class=" perso">
-        <label for="perso">Choix de votre couleur:</label><br/>
+        <label for="perso">Choix de votre&nbsp<span id="choix"></span></label><br/>
         <select name="perso" id="perso">
         </select>
     </div>
@@ -114,5 +132,4 @@ function request(url){
     }
   });
 };
-  
- request(urlTeddy)
+request(url);
