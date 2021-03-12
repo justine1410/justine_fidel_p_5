@@ -166,35 +166,45 @@
         margin:0;
         color: $primary-darken;
     }
-}
-.container{
-    width: 90%;
-}
-.envoyer button{
-    border-radius: 20px;
-    border:none;
-    border-color:$primary-darken;
-    background-color:$primary;
-    color: $primary-darken;
-    margin-top:20px;
-    margin-bottom:50px;
-    &:hover{
-        transform : scale(1.2);
-        background-color: $primary-hover;
+};
+#formulaire{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    h3{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .form{
+        display:flex;
+        flex-direction: column;
+        width: 80%;
+        margin-left:10%;
+        .form-control{
+            margin:5px;
+        }
     }
 }
-.valid button{
+.valid{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    button{
         margin:5px;
+        margin-bottom:20px;
         border: none;
         border-radius: 20px;;
         border-color:$primary-darken;
         background-color:$primary;
         color: $primary-darken;
-        width: 40%;
+        width: 50%;
         &:hover{
             transform : scale(1.2);
             background-color: $primary-hover;
         }
+    }
 }
 
                     /*****style mobile*****/

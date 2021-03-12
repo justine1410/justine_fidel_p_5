@@ -10186,32 +10186,41 @@ header .header-top a:hover {
   color: #c697bd;
 }
 
-.container {
-  width: 90%;
+#formulaire {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#formulaire h3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#formulaire .form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+}
+#formulaire .form .form-control {
+  margin: 5px;
 }
 
-.envoyer button {
-  border-radius: 20px;
-  border: none;
-  border-color: #c697bd;
-  background-color: #f3e9f1;
-  color: #c697bd;
-  margin-top: 20px;
-  margin-bottom: 50px;
+.valid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
-.envoyer button:hover {
-  transform: scale(1.2);
-  background-color: #8f4e82;
-}
-
 .valid button {
   margin: 5px;
+  margin-bottom: 20px;
   border: none;
   border-radius: 20px;
   border-color: #c697bd;
   background-color: #f3e9f1;
   color: #c697bd;
-  width: 40%;
+  width: 50%;
 }
 .valid button:hover {
   transform: scale(1.2);
