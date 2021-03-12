@@ -7,7 +7,7 @@ const listeProduits = document.getElementById("list-produits");
      listeProduits.innerHTML = listeProduits.innerHTML+`
      <a  href="produit.html?type=${type}&id=${choix[i]._id}">
        <figure>
-           <img id="imgteddy1" src=${choix[i].imageUrl} alt="teddy"/>
+       <img id="imgteddy1" src=${choix[i].imageUrl} alt="teddy"/>
            <figcaption >
                <h3 id="titleteddy1">${choix[i].name}</h3>
                <p id="descriptteddy1">${choix[i].description}</p>              

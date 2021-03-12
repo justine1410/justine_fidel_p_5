@@ -137,23 +137,23 @@ if(produitStorage === null || produitStorage ==0){
 function afficherFormulaire(){
     const affichForm=
             document.getElementById("formulaire").insertAdjacentHTML("beforeend",`
-                <div id="formulaire">
+                
                     <h3>Pour finaliser votre commande, merci d'indiquer vos coordonnées :</h3>
-                    <form method="post" class="form" >  
-                        <label for="prenom">Prénom :</label>
-                        <input type="text"  class="form-control" id="prenom"  required>
+                    <form class="form" >  
+                        <label for="firstName">Prénom :</label>
+                        <input type="text"  class="form-control" id="firstName"  required>
 
-                        <label for="Nom">Nom :</label>
-                        <input type="text" class="form-control" id="nom"  required>
+                        <label for="lastName">Nom :</label>
+                        <input type="text" class="form-control" id="lastName"  required>
 
-                        <label for="Adresse">Adresse :</label>
-                        <input type="text" class="form-control" id="description" required>
+                        <label for="adress">Adresse :</label>
+                        <input type="text" class="form-control" id="adress" required>
 
-                        <label for="ville">Ville :</label>
-                        <input  type="text" class="form-control" id="Ville" required>
+                        <label for="city">Ville :</label>
+                        <input type="text" class="form-control" id="city" required>
 
                         <label for="email">Email :</label>
-                        <input type="text" class="form-control" id="Email" required>
+                        <input type="text" class="form-control" id="email" required>
 
                         <div class="chekbox">
                             <input  type="checkbox" name="info"/>
@@ -161,16 +161,47 @@ function afficherFormulaire(){
                                 Enregistrer vos informations
                             </label>
                         </div>
-                    </form> 
+                    </form
                     <div class="valid">
-                        <a class="valid" href="confirm.html">
+                        <p class="valid">
                             <button type="submit" >Validez votre commande</button>
-                        </a>
-                        <a class="valid" href="">
+                        </p>
+                        <p class="valid" >
                             <button type="submit" >Continuez vos achat</button>
-                        </a>
+                        </p>
                     </div>  
                 </div>
             `);
 };
+afficherFormulaire();
+
+//----------------------------addEventListenner------------------//
+//Selection du bouton envoie formulaire
+const btnEnvoiForm = document.querySelector(".valid");
+console.log(btnEnvoiForm)
+
+btnEnvoiForm.addEventListener("click", function(e){
+     e.preventDefault();
+
+    //recupération des donnée du formulaire pour les mettre dans le localStrage//
+
+    localStorage.setItem("firstName",document.querySelector("#firstName").value);
+    localStorage.setItem("lastName",document.querySelector("#lastName").value);
+    localStorage.setItem("adress",document.querySelector("#adress").value);
+    localStorage.setItem("city",document.querySelector("#city").value);
+    localStorage.setItem("email",document.querySelector("#email").value);
+
+    
+    //mettre les valeurs du form dans un objet//
+    const contact = {
+        prenom: localStorage.getItem("firstName"),
+        nom: localStorage.getItem("lastName"),
+        adresse: localStorage.getItem("adress"),
+        ville: localStorage.getItem("city"),
+        mail: localStorage.getItem("email"),
+    }
+    
+    console.log(contact)
+});
+
 
