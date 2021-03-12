@@ -32,6 +32,7 @@ const listeProduits = document.getElementById("list-produits");
   });
 };
 
+
 //...............click pour produit apparaisse...........//
 let clickTeddy =  document.getElementById("teddyClick")
  clickTeddy.addEventListener('click', function(){

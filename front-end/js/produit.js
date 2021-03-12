@@ -1,7 +1,7 @@
 //récupération de la l'id dans l'url//
 const recup_id = new URLSearchParams(window.location.search).get("id");
 const recup_type = new URLSearchParams(window.location.search).get("type");
-
+console.log(recup_id)
 //affichage de l'objet//
 const url="http://localhost:3000/api/"+recup_type+"/"+recup_id;
 
@@ -70,7 +70,6 @@ function produit(){
   choixoptions();
   //.............................................récupération des donnée et envoie au panier......................//
   const option = document.querySelector("#perso");
-  console.log(option)
   //séléction du btn ajouter//
   const btnEnvoi = document.querySelector("#btn_envoi")
   //ecouter le btn et envoyer le panier//
@@ -90,9 +89,12 @@ function produit(){
           ce qui se trouve dans mon localstorage*/
     let produitStorage = JSON.parse (localStorage.getItem("produit"));
     console.log(produitStorage);
+    
      //fonction fenêtre popup//
+
+     
     function popConfirm(){
-      if(window.confirm(`${resultat.name} option :${option.value} a bien été ajouté au panier 
+      if(confirm(`${resultat.name} option :${option.value} a bien été ajouté au panier 
       Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
         window.location.href = "panier.html";
       }else{

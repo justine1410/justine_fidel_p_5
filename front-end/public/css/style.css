@@ -9959,7 +9959,8 @@ header .header-top a:hover {
   text-decoration: none;
   padding: 10px;
 }
-header .header-présentation {
+
+#panier h2 {
   background-color: #f3e9f1;
   margin-top: 40px;
   text-align: center;
@@ -9969,11 +9970,10 @@ header .header-présentation {
   border-color: #f3e9f1;
   display: flex;
   justify-content: center;
-  width: 70%;
   display: flex;
   align-items: center;
 }
-header .header-présentation h2 {
+#panier h2 h2 {
   line-height: 2;
 }
 
@@ -10127,8 +10127,8 @@ header .header-présentation h2 {
 }
 
 #panier {
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
 }
 #panier img {
   width: 15%;
@@ -10143,13 +10143,31 @@ header .header-présentation h2 {
 }
 #panier .panier .panier-texte {
   display: flex;
-  width: 80%;
+  flex-direction: row;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
+}
+#panier .panier .panier-texte h3 {
+  width: 25%;
+}
+#panier .panier .panier-texte p {
+  width: 15%;
 }
 #panier .panier .panier-texte .descript {
   width: 20%;
   text-align: center;
+}
+#panier .panier .panier-texte button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-color: #c697bd;
+  background-color: white;
+}
+#panier .panier .panier-texte button:hover {
+  transform: scale(1.2);
+  background-color: #c697bd;
 }
 
 .total {

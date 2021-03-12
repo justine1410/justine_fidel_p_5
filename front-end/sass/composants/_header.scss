@@ -29,25 +29,25 @@ header{
         }
 
     }  
-    .header-présentation{
-        background-color: $primary;   
-        margin-top:40px;
-        text-align: center;
-        height: 150px;
-        border:solid;
-        border-radius: 20px;
-        border-color: $primary;
-        display: flex;
-        justify-content: center;
-        width: 70%;
-        display: flex;
-        align-items: center;
-        h2{
-            line-height:2;
-        }
-
-    }
 }
+#panier h2{
+    background-color: $primary;   
+    margin-top:40px;
+    text-align: center;
+    height: 150px;
+    border:solid;
+    border-radius: 20px;
+    border-color: $primary;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    h2{
+        line-height:2;
+    }
+
+}
+
 .confirmation{
     display:flex; 
     flex-direction: column;
