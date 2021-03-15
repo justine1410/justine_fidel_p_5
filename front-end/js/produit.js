@@ -1,11 +1,12 @@
 //récupération de la l'id dans l'url//
-const recup_id = new URLSearchParams(window.location.search).get("id");
-const recup_type = new URLSearchParams(window.location.search).get("type");
+const recup_id = new URLSearchParams(window.location.search).get("id"); //va chercher l'id dans l'url
+const recup_type = new URLSearchParams(window.location.search).get("type"); //va chercher le type dans l'url
 console.log(recup_id)
-//affichage de l'objet//
-const url="http://localhost:3000/api/"+recup_type+"/"+recup_id;
 
-//......................mes options....................//
+//affichage de l'objet//
+const url="http://localhost:3000/api/"+recup_type+"/"+recup_id; 
+
+//......................mes options par rapport au produit....................//
 function choixoptions(){
   let choix= document.getElementById("choix");
   let structureOptions = [];  
@@ -40,6 +41,7 @@ function choixoptions(){
   const positionOption = document.querySelector("#perso")
   positionOption.innerHTML = structureOptions
 };
+
 //................texte a ajoute......................//
 function carteProduit(){
   carteProduits.innerHTML = carteProduits.innerHTML+`
@@ -61,7 +63,7 @@ function carteProduit(){
   </div>
   ` ;
 };
-//...............ou j'ajoute mes produits...............//
+//j'ajoute mes produits//
 const carteProduits = document.getElementById("list-produits");
 
 //.....................produit choisie..................//
@@ -84,15 +86,12 @@ function produit(){
         quantite: 1,
         prix:resultat.price/100,
     };
-    console.log(optionsProduit)
-    /*..........................Le local Storage.................
-          ce qui se trouve dans mon localstorage*/
-    let produitStorage = JSON.parse (localStorage.getItem("produit"));
+    //..........................Le local Storage.................//
+    //ce qui se trouve dans mon localstorage//
+    let produitStorage = JSON.parse(localStorage.getItem("produit"));
     console.log(produitStorage);
     
      //fonction fenêtre popup//
-
-     
     function popConfirm(){
       if(confirm(`${resultat.name} option :${option.value} a bien été ajouté au panier 
       Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
@@ -101,21 +100,24 @@ function produit(){
         window.location.href = "index.html";
       }
     }
+
+    //j'ajoute dans le localStorage//
     function ajoutProduitLocalStorage(){
       produitStorage.push(optionsProduit);
       localStorage.setItem("produit", JSON.stringify(produitStorage));
     };  
+
     //s'il y a deja de produits d'enregistré//
     if(produitStorage){
-      ajoutProduitLocalStorage();
-      popConfirm();
+      ajoutProduitLocalStorage();//je met les produit dans le local//
+      popConfirm();//j'ajoute ma pop-confirm//
       console.log("ok")
     }
     //s'il y a pas de produit//
     else{
-        produitStorage =[];
-        ajoutProduitLocalStorage();
-        popConfirm();
+        produitStorage =[];//je crée un tableau vide
+        ajoutProduitLocalStorage()//j'y met les produits
+        popConfirm(); //j'ajoute la pop-confirm
     }
   });
 };

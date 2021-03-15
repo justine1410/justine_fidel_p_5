@@ -1,4 +1,4 @@
-const types=["teddies","cameras","furniture"];
+const types=["teddies","cameras","furniture"];//type des produits
 
  //..................texte à ajouté....................//
 const listeProduits = document.getElementById("list-produits");
@@ -37,17 +37,17 @@ const listeProduits = document.getElementById("list-produits");
 let clickTeddy =  document.getElementById("teddyClick")
  clickTeddy.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(types[0]);
+   request(types[0]);//types[0] se réfere aux tableau ligne 1
  })
 
  let clikCam = document.getElementById("camClick")
  clikCam.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(types[1]);
+   request(types[1]);//types[0] se réfere aux tableau ligne 1
  });
 
  let clikfurn = document.getElementById("furnClick")
  clikfurn.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(types[2]);
+   request(types[2]);//types[0] se réfere aux tableau ligne 1
  });
