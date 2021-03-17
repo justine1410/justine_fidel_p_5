@@ -32,12 +32,12 @@ const listeProduits = document.getElementById("list-produits");
   });
 };
 
-
 //...............click pour produit apparaisse...........//
 let clickTeddy =  document.getElementById("teddyClick")
  clickTeddy.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
-   request(types[0]);//types[0] se réfere aux tableau ligne 1
+   request(types[0]);
+   console.log(types)//types[0] se réfere aux tableau ligne 1
  })
 
  let clikCam = document.getElementById("camClick")
@@ -51,3 +51,5 @@ let clickTeddy =  document.getElementById("teddyClick")
    listeProduits.innerHTML= " ";
    request(types[2]);//types[0] se réfere aux tableau ligne 1
  });
+
+
