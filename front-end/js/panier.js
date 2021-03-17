@@ -205,8 +205,6 @@ function envoi(){
         email : document.querySelector("#email").value,
      };
      
-     //mettre l'objet dans le localstorage//
-    //localStorage.setItem("contact",JSON.stringify(contact))
 
     //recuperation de l'idproduit//
     let  products= [];
