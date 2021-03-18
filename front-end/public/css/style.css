@@ -9960,100 +9960,6 @@ header .header-top a:hover {
   padding: 10px;
 }
 
-#panier h2 {
-  background-color: #f3e9f1;
-  margin-top: 40px;
-  text-align: center;
-  height: 150px;
-  border: solid;
-  border-radius: 20px;
-  border-color: #f3e9f1;
-  display: flex;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-#panier h2 h2 {
-  line-height: 2;
-}
-
-.confirmation {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 90%;
-  background-color: #f3e9f1;
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-left: 5%;
-  margin-bottom: 30px;
-  padding: 10px;
-}
-.confirmation h2 {
-  text-align: center;
-}
-
-.recap-commande {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  background-color: #f3e9f1;
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-left: 5%;
-  margin-bottom: 30px;
-  padding: 10px;
-}
-
-.recap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-}
-
-.produit {
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: solid;
-  border-radius: 20px;
-  width: 80%;
-  border-color: #c697bd;
-  margin: 1%;
-}
-.produit img {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  width: 25%;
-}
-.produit h3 {
-  margin: 30px;
-  height: 30%;
-}
-.produit p {
-  margin: 30px;
-  height: 30%;
-}
-
-.total-commande {
-  border: solid;
-  border-radius: 20px;
-  border-color: #c697bd;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-.total-commande p {
-  margin: 0;
-}
-
 @media screen and (min-width: 320px) and (max-width: 750px) {
   header {
     font-family: cursive;
@@ -10076,9 +9982,8 @@ header .header-top a:hover {
     width: 90%;
   }
   header .header-présentation {
-    position: initial;
     width: 100%;
-    height: 200px;
+    text-align: center;
     margin: 0;
   }
   header .header-présentation h2 {
@@ -10224,6 +10129,7 @@ header .header-top a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border: solid;
   border-color: #c697bd;
   background-color: white;
 }
@@ -10289,6 +10195,80 @@ header .header-top a:hover {
   background-color: #8f4e82;
 }
 
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  background-color: #f3e9f1;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: 20%;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.confirmation h2 {
+  text-align: center;
+}
+
+.recap-commande {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  background-color: #f3e9f1;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: 20%;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.recap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.produit {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: solid;
+  border-radius: 20px;
+  width: 80%;
+  border-color: #c697bd;
+  margin: 1%;
+}
+.produit img {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  width: 25%;
+  height: 100%;
+}
+.produit p {
+  margin: 2%;
+}
+
+.total-commande {
+  border: solid;
+  border-radius: 20px;
+  border-color: #c697bd;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.total-commande p {
+  margin: 0;
+}
+
 /*****style mobile*****/
 @media screen and (min-width: 320px) and (max-width: 750px) {
   main #produit {
@@ -10299,6 +10279,53 @@ header .header-top a:hover {
   }
   main #produit .produit-texte select {
     margin-left: 10%;
+  }
+
+  #panier .panier {
+    flex-direction: column;
+  }
+  #panier .panier img {
+    width: 100%;
+    border-right: none;
+    border-bottom: solid;
+    border-color: #c697bd;
+  }
+  #panier .panier .panier-texte {
+    flex-direction: column;
+    align-items: center;
+  }
+  #panier .panier .panier-texte p {
+    width: 40%;
+    text-align: center;
+  }
+  #panier .panier .panier-texte .vider {
+    margin-bottom: 20px;
+  }
+
+  .total {
+    margin-bottom: 20px;
+  }
+
+  .confirmation {
+    width: 100%;
+    margin: 0;
+  }
+
+  .recap-commande {
+    width: 100%;
+    margin-left: 0;
+  }
+  .recap-commande .produit {
+    width: 100%;
+  }
+  .recap-commande .produit h3 {
+    margin: 0;
+  }
+  .recap-commande .produit img {
+    width: 30%;
+  }
+  .recap-commande .total-commande {
+    width: 90%;
   }
 }
 footer ul {

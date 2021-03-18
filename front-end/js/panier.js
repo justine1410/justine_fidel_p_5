@@ -155,7 +155,7 @@ for(let i=0; i<input.length; i++){
 };
 
 //envoie du formulaire
-/*form.addEventListener("submit", function(e){
+form.addEventListener("submit", function(e){
     e.preventDefault();
     let testPassed = 0;
     for(let i=0; i<input.length; i++){
@@ -184,7 +184,7 @@ for(let i=0; i<input.length; i++){
     if ( testPassed == input.length){
         console.log('coucou');
     };
-});*/
+});
 form.addEventListener("submit", function(e){
         e.preventDefault()
     //----------------------------envoie du formulaire dans le localStorage------------------//
