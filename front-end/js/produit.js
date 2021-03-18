@@ -107,17 +107,17 @@ function produit(){
     //s'il y a deja de produits d'enregistré//
     if(produitStorage){
       ajoutProduitLocalStorage();//je met les produit dans le local//
-      //popConfirm();//j'ajoute ma pop-confirm//
+      popConfirm();//j'ajoute ma pop-confirm//
     }
     //s'il y a pas de produit//
     else {
         produitStorage =[];//je crée un tableau vide
         ajoutProduitLocalStorage()//j'y met les produits
-        //popConfirm(); //j'ajoute la pop-confirm
+        popConfirm(); //j'ajoute la pop-confirm
     }
   });
 };
-console.log(produit._id);
+
 
 
 //affichage de l'objet//
