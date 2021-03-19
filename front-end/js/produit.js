@@ -87,7 +87,7 @@ function produit(){
   btnEnvoi.addEventListener("click", (event)=>{
     event.preventDefault();
     //recupere les valeurs du produit dans un objet//
-    produitCommande = {
+    let produitCommande = {
         image:resultat.imageUrl,
         name:resultat.name,  
         idProduit : resultat._id,  
@@ -98,7 +98,7 @@ function produit(){
 
     //..........................Le local Storage.................//
     //Je crée un clé dans le localStorage//
-    let produit = JSON.parse(localStorage.getItem("produit"));
+    let produits = JSON.parse(localStorage.getItem("produit"));
     
     //fonction fenêtre popup//
     function popConfirm(){
@@ -110,21 +110,22 @@ function produit(){
       }
     }  
     //je regarde si produit existe dans le local
-    if(produit){
+    if(produits && produits.length !== 0){
       //je fais une boucle pour verifiez si le produit existe deja
       let existe = false;
-      produit.forEach(function(i){
-        if(i.name == produit.name || i.perso == produit.perso){
-          i.quantite++;
+      produits.forEach(function(produit){
+        if(produit.name == produitCommande.name && produit.perso == produitCommande.perso){
+          produit.quantite++;
           existe = true;
+          return false;
           console.log(existe);
         }
       });
       if(!existe){
         console.log(existe);
-        produit.push(produitCommande);
+        produits.push(produitCommande);
       }
-      localStorage.setItem("produit", JSON.stringify(produit));
+      localStorage.setItem("produit", JSON.stringify(produits));
 
     }else{
       produit =[];//je crée un tableau vide

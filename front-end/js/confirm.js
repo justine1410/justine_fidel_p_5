@@ -13,6 +13,11 @@ let merci = document.querySelector('.confirmation');
  <p>A bientôt</p>
 `;
 
+let numCommande = document.querySelector('.num-commande');
+numCommande.innerHTML=`
+Commande n° ${valid.orderId}
+`;
+
 
 let validation = produit;
 total = 0;
@@ -33,10 +38,11 @@ validation.forEach(function(produit){
 });
 
 let acceuil = document.querySelector(".acceuil")
+
 console.log(acceuil);
-acceuil.addEventListener("submit", function(e){
+acceuil.addEventListener("click", function(e){
     e.preventDefault
-    localStorage.clear();
+    //localStorage.clear();
 
 });
 
