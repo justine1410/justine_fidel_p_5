@@ -3,9 +3,30 @@ const recup_id = new URLSearchParams(window.location.search).get("id"); //va che
 const recup_type = new URLSearchParams(window.location.search).get("type"); //va chercher le type dans l'url
 console.log(recup_id)
 
+//affichage de l'objet//
+const url="http://localhost:3000/api/"+recup_type+"/"+recup_id; 
 
-//................texte a ajoute......................//
-function carteProduit(){
+
+//.......................requête......................//
+  fetch(url)
+  .then(async (response) =>{
+    try{
+      resultat = await response.json();
+      console.log(resultat)
+      produit(resultat)
+    }
+    catch (e){
+      console.log(e);
+    }
+  });
+
+//------------------affichage produit---------------------//
+//endoirt ou j' ajoute mes produits//
+const carteProduits = document.getElementById("list-produits");
+
+//.....................produit choisie..................//
+function produit(){
+  //J'ajoute mon texte//
   carteProduits.innerHTML = carteProduits.innerHTML+`
   <div id="produit">
     <img src=${resultat.imageUrl} alt="tedy.1"/>
@@ -24,9 +45,7 @@ function carteProduit(){
     </div>
   </div>
   ` ;
-};
-//......................mes options par rapport au produit....................//
-function choixoptions(){
+  //je met les options du produit par rapport a son type//
   let choix= document.getElementById("choix");
   let structureOptions = [];  
   if(recup_type === "teddies"){
@@ -56,27 +75,19 @@ function choixoptions(){
     };  
   }
 
-  //insere les options dans le code html
-  const positionOption = document.querySelector("#perso")
-  positionOption.innerHTML = structureOptions
-};
+  const option = document.querySelector("#perso")
+  option.innerHTML = structureOptions
 
-//j'ajoute mes produits//
-const carteProduits = document.getElementById("list-produits");
-
-//.....................produit choisie..................//
-function produit(){
-  carteProduit();
-  choixoptions();
   //.............................................récupération des donnée et envoie au panier......................//
-  const option = document.querySelector("#perso");
+
   //séléction du btn ajouter//
   const btnEnvoi = document.querySelector("#btn_envoi")
+
   //ecouter le btn et envoyer le panier//
   btnEnvoi.addEventListener("click", (event)=>{
     event.preventDefault();
-    //recupere les valeurs du produit//
-    optionsProduit = {
+    //recupere les valeurs du produit dans un objet//
+    produitCommande = {
         image:resultat.imageUrl,
         name:resultat.name,  
         idProduit : resultat._id,  
@@ -84,9 +95,16 @@ function produit(){
         quantite: 1,
         prix:resultat.price/100,
     };
+
     //..........................Le local Storage.................//
-    //ce qui se trouve dans mon localstorage//
-    let produitStorage = JSON.parse(localStorage.getItem("produit"));
+    //Je crée un clé dans le localStorage//
+    let produit = JSON.parse(localStorage.getItem("produit"));
+    
+    /*for(i=0; i<produit.length; i++){
+      if(produit[i].name == produit[i].name || produit[i].perso == produit[i].perso){  
+        produit[i].quantite++
+      }
+    }*/
 
      //fonction fenêtre popup//
     function popConfirm(){
@@ -96,46 +114,20 @@ function produit(){
       }else{
         window.location.href = "index.html";
       }
-    }
+    }  
 
-    //j'ajoute dans le localStorage//
-    function ajoutProduitLocalStorage(){
-      produitStorage.push(optionsProduit);
-      localStorage.setItem("produit", JSON.stringify(produitStorage));
-    };  
-
-    //s'il y a deja de produits d'enregistré//
-    if(produitStorage){
-      ajoutProduitLocalStorage();//je met les produit dans le local//
-      popConfirm();//j'ajoute ma pop-confirm//
-    }
-    //s'il y a pas de produit//
-    else {
-        produitStorage =[];//je crée un tableau vide
-        ajoutProduitLocalStorage()//j'y met les produits
-        popConfirm(); //j'ajoute la pop-confirm
+    //Si pas de item produits //
+    if(produit == null){
+      produit =[];//je crée un tableau vide
+      produit.push(produitCommande);
+      localStorage.setItem("produit", JSON.stringify(produit)); 
+      popConfirm()
+ 
+    }//sinon je met dans l'item produit
+    else if(produit){
+      produit.push(produitCommande);
+      localStorage.setItem("produit", JSON.stringify(produit));
+      popConfirm()
     }
   });
 };
-
-
-
-//affichage de l'objet//
-const url="http://localhost:3000/api/"+recup_type+"/"+recup_id; 
-
-
-//.......................requête......................//
-function request(url){
-  fetch(url)
-  .then(async (response) =>{
-    try{
-      resultat = await response.json();
-      console.log(resultat)
-      produit(resultat)
-    }
-    catch (e){
-      console.log(e);
-    }
-  });
-};
-request(url);

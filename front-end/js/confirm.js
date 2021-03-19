@@ -22,7 +22,7 @@ for(i=0; i<valid.products.length; i++ ){
     </div>
     `
     total=0;
-    total= valid.products[i].price/100 ;
+    total= valid.products[i].price/100 + valid.products[i].price/100;
     document.getElementById("total").innerHTML = total + "€";
     
 }
