@@ -216,7 +216,7 @@ form.addEventListener("submit", function(e){
         const resultat = await response.json();
         console.log(resultat)
         localStorage.setItem("valide", JSON.stringify(resultat));
-        localStorage.removeItem("produit")
+        //localStorage.removeItem("produit")
       }
       catch (e){
         console.log(err);

@@ -1,5 +1,6 @@
 
 let valid = JSON.parse(localStorage.getItem("valide"));
+let produit = JSON.parse(localStorage.getItem("produit"));
 
 console.log(valid);
 
@@ -13,19 +14,20 @@ let merci = document.querySelector('.confirmation');
 `;
 
 
-let validation = valid.products;
+let validation = produit;
 total = 0;
 
-validation.forEach(function(products){
+validation.forEach(function(produit){
     document.getElementById("recap").insertAdjacentHTML("beforeend",`
     <div class="produit">
-        <img src=${products.imageUrl} alt="teddy.1"/>
-        <h3 >${products.name}</h3>
-        <p >${products.price/100}€</p>
+        <img src=${produit.image} alt="teddy.1"/>
+        <h3 >${produit.name}</h3>
+        <p>qte : ${produit.quantite}</p>
+        <p >${produit.prix}€</p>
     </div>
     `
     );
-    total = total + products.price/100 ;
+    total = total + produit.prix * produit.quantite;
     document.getElementById("total").innerHTML = total+ "€";
 
 });

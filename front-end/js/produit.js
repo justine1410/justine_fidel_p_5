@@ -100,13 +100,7 @@ function produit(){
     //Je crée un clé dans le localStorage//
     let produit = JSON.parse(localStorage.getItem("produit"));
     
-    /*for(i=0; i<produit.length; i++){
-      if(produit[i].name == produit[i].name || produit[i].perso == produit[i].perso){  
-        produit[i].quantite++
-      }
-    }*/
-
-     //fonction fenêtre popup//
+    //fonction fenêtre popup//
     function popConfirm(){
       if(confirm(`${resultat.name} option :${option.value} a bien été ajouté au panier 
       Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
@@ -116,18 +110,24 @@ function produit(){
       }
     }  
 
-    //Si pas de item produits //
-    if(produit == null){
+    if(Array.isArray(produit)){
+      let existe = false;
+
+      produit.forEach(function(produit){
+        if(produit.name == produit.name || produit.perso == produit.perso){
+          produit.quantite++;
+          existe = true;
+        }
+      });
+      if(!existe){
+        produit.push(produitCommande);
+      }
+      localStorage.setItem("produit", JSON.stringify(produit)); 
+    }else{
       produit =[];//je crée un tableau vide
       produit.push(produitCommande);
       localStorage.setItem("produit", JSON.stringify(produit)); 
-      popConfirm()
- 
-    }//sinon je met dans l'item produit
-    else if(produit){
-      produit.push(produitCommande);
-      localStorage.setItem("produit", JSON.stringify(produit));
-      popConfirm()
     }
+    popConfirm()
   });
 };
