@@ -42,7 +42,7 @@ let acceuil = document.querySelector(".acceuil")
 console.log(acceuil);
 acceuil.addEventListener("click", function(e){
     e.preventDefault
-    //localStorage.clear();
+    localStorage.clear();
 
 });
 
