@@ -3,7 +3,6 @@
 let produitStorage = JSON.parse (localStorage.getItem("produit"));
 console.log(produitStorage)
 
-
 //suppression article//
 function supprProduit(idSuppr){
     //supprimer du localstorage le produit dont l'id a ete cliquer//
@@ -53,7 +52,6 @@ function affichPanier(produits) {
                     rafraichProduit()
                 });
            
-            
             //Suppression de produit
             let supp= document.querySelector("#suppr"+element.idProduit);
                 supp.addEventListener('click', function(e){              
@@ -74,9 +72,17 @@ function affichPanier(produits) {
                     event.preventDefault();
                     let tabId= event.target.id.split("~");
                     let idSuppression = tabId[1];
-                    console.log(idSuppression);
                     supprProduit(idSuppression);
-                  
+                    if( produitStorage ==0){
+                        if(window.confirm("Vous allez retiez le dernier article!")){
+                        document.getElementById("panier").insertAdjacentHTML("beforeend",`
+                        <div class="header-presentation">
+                            <h2>Votre panier est vide</h2>
+                        </div>
+                        `,
+                        document.getElementById("total").innerHTML= "0 €"
+                        )};
+                    };                           
                 });
             };
 
@@ -90,9 +96,9 @@ function affichPanier(produits) {
 };
 
 //affichage si le panier et vide ou si le panier et plein//
-if(produitStorage === null || produitStorage ==0){
+if(produitStorage == null || produitStorage == 0){
     document.getElementById("panier").insertAdjacentHTML("beforeend",`
-<div class="header-présentation">
+<div class="header-presentation">
     <h2>Votre panier est vide</h2>
 </div>
 `)
@@ -106,13 +112,13 @@ if(produitStorage === null || produitStorage ==0){
 //----------------------------Validation du formulaire------------------//
 
 //les différentes regex
-const regfirstName = new RegExp('^[A-Za-z-éèê]+$','g');
-const reglastName = new RegExp('^[A-Za-z-éèê]+$','g');
-const regAdress = new RegExp('^[A-Za-z-éèê0-9 ]+$','g');
-const regEmail = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$','g');
-const regCity = new RegExp('^[A-Za-z-éèê ]+$','g');
+const regfirstName = new RegExp('^[A-Za-z-éèê]+$');
+const reglastName = new RegExp('^[A-Za-z-éèê]+$');
+const regAdress = new RegExp('^[A-Za-z-éèê0-9 ]+$');
+const regEmail = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
+const regCity = new RegExp('^[A-Za-z-éèê ]+$');
 
-//une fonction quie teste la valeur des regex
+//une fonction qui teste la valeur des regex
 function isValid(regex, valeur){
     return regex.test(valeur);
 };
@@ -180,15 +186,9 @@ form.addEventListener("submit", function(e){
                 testPassed++
             }
         }
-    };
+    }
     if ( testPassed == input.length){
-        console.log('coucou');
-    };
-});
-form.addEventListener("submit", function(e){
-        e.preventDefault()
-    //----------------------------envoie du formulaire dans le localStorage------------------//
-
+            //----------------------------envoie du formulaire dans le localStorage------------------//
     //recuperation des valeur du formulaire dans un objet//
      const contact ={
         firstName :document.querySelector("#firstName").value,
@@ -216,22 +216,24 @@ form.addEventListener("submit", function(e){
         const resultat = await response.json();
         console.log(resultat)
         localStorage.setItem("valide", JSON.stringify(resultat));
-
+        localStorage.removeItem("produit")
       }
       catch (e){
         console.log(err);
       }
     });
-    popConfirm()
+    confirm(`Votre commande a bien été envoyée  `);
+    window.location.href = "confirm.html";
+    }else {
+    confirm(`Tous les champs ne sont pas renseigné correctement `)
+    console.log(input.length);
+    }
+    
 });
 
 
-//fonction fenêtre popup//
-function popConfirm(){
-if(confirm(`Votre commande a bien été envoyée  `)){
-    window.location.href = "confirm.html";
-}
-}
+
+
   
 
 

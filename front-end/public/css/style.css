@@ -10097,6 +10097,12 @@ header .header-top a:hover {
   width: 90%;
   margin-left: 5%;
 }
+#panier .header-presentation {
+  text-align: center;
+  border: solid;
+  border-color: #c697bd;
+  margin-top: 20px;
+}
 #panier img {
   width: 15%;
   border-right: solid;
@@ -10224,7 +10230,7 @@ header .header-top a:hover {
   padding: 10px;
 }
 
-.recap {
+#recap {
   display: flex;
   flex-direction: column;
   align-items: center;

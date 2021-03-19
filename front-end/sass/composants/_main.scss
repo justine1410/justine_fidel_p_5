@@ -110,6 +110,12 @@
 #panier{
     width: 90%;
     margin-left: 5%;
+    .header-presentation{
+        text-align: center;
+        border: solid;
+        border-color:$primary-darken;
+        margin-top:20px;
+    }
     img{
         width:15%;
         border-right: solid;
@@ -239,7 +245,7 @@
     padding:10px;
    
 }
-.recap{
+#recap{
     display:flex; 
     flex-direction: column;
     align-items: center;

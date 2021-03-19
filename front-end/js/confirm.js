@@ -1,7 +1,7 @@
 
 let valid = JSON.parse(localStorage.getItem("valide"));
-let article = JSON.parse(localStorage.getItem("valide","products"))
-console.log(article);
+
+console.log(valid);
 
 let merci = document.querySelector('.confirmation');
  merci.innerHTML = `           
@@ -12,24 +12,21 @@ let merci = document.querySelector('.confirmation');
  <p>A bientôt</p>
 `;
 
-for(i=0; i<valid.products.length; i++ ){
-    let recap = document.querySelector('.recap');
-    recap.innerHTML=recap.innerHTML+`
+
+let validation = valid.products;
+total = 0;
+
+validation.forEach(function(products){
+    document.getElementById("recap").insertAdjacentHTML("beforeend",`
     <div class="produit">
-        <img src=${valid.products[i].imageUrl} alt="teddy.1"/>
-        <h3 >${valid.products[i].name}</h3>
-        <p >${valid.products[i].price/100}€</p>
+        <img src=${products.imageUrl} alt="teddy.1"/>
+        <h3 >${products.name}</h3>
+        <p >${products.price/100}€</p>
     </div>
     `
-    total=0;
-    total= valid.products[i].price/100 + valid.products[i].price/100;
-    document.getElementById("total").innerHTML = total + "€";
-    
-}
+    );
+    total = total + products.price/100 ;
+    document.getElementById("total").innerHTML = total+ "€";
 
-let commande = document.querySelector(".num-commande");
-commande.innerHTML=`Commande n° : ${valid.orderId}`;
-console.log(commande);
-
-
+});
 
