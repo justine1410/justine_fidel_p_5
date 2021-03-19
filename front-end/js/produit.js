@@ -109,17 +109,20 @@ function produit(){
         window.location.href = "index.html";
       }
     }  
-
-    if(Array.isArray(produit)){
+    //je regarde sir produit existe dans le local
+    if(produit){
+      //je fais une boucle pour verifiez si le produit existe deja
       let existe = false;
-
       produit.forEach(function(produit){
         if(produit.name == produit.name || produit.perso == produit.perso){
           produit.quantite++;
           existe = true;
+          console.log(existe);
         }
       });
+      
       if(!existe){
+        console.log(existe);
         produit.push(produitCommande);
       }
       localStorage.setItem("produit", JSON.stringify(produit)); 
@@ -131,3 +134,4 @@ function produit(){
     popConfirm()
   });
 };
+
