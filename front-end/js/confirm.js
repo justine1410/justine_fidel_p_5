@@ -32,3 +32,11 @@ validation.forEach(function(produit){
 
 });
 
+let acceuil = document.querySelector(".acceuil")
+console.log(acceuil);
+acceuil.addEventListener("submit", function(e){
+    e.preventDefault
+    localStorage.clear();
+
+});
+

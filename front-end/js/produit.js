@@ -109,23 +109,23 @@ function produit(){
         window.location.href = "index.html";
       }
     }  
-    //je regarde sir produit existe dans le local
+    //je regarde si produit existe dans le local
     if(produit){
       //je fais une boucle pour verifiez si le produit existe deja
       let existe = false;
-      produit.forEach(function(produit){
-        if(produit.name == produit.name || produit.perso == produit.perso){
-          produit.quantite++;
+      produit.forEach(function(i){
+        if(i.name == produit.name || i.perso == produit.perso){
+          i.quantite++;
           existe = true;
           console.log(existe);
         }
       });
-      
       if(!existe){
         console.log(existe);
         produit.push(produitCommande);
       }
-      localStorage.setItem("produit", JSON.stringify(produit)); 
+      localStorage.setItem("produit", JSON.stringify(produit));
+
     }else{
       produit =[];//je crée un tableau vide
       produit.push(produitCommande);
