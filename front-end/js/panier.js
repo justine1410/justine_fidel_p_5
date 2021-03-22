@@ -210,7 +210,6 @@ form.addEventListener("submit", function(e){
                     products.push(element.idProduit);
                 }
             });
-        
             //Envoie vers le serveur//
             fetch("http://localhost:3000/api/teddies/order",{
                 method:"POST",
@@ -235,8 +234,6 @@ form.addEventListener("submit", function(e){
                     products.push(element.idProduit);
                 }
             });
-            console.log( products,contact);
-            //Envoie vers le serveur// 
             fetch("http://localhost:3000/api/cameras/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
@@ -260,8 +257,6 @@ form.addEventListener("submit", function(e){
                     products.push(element.idProduit);
                 }
             });
-            console.log( products,contact);
-            //Envoie vers le serveur//
             fetch("http://localhost:3000/api/furniture/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
@@ -277,9 +272,7 @@ form.addEventListener("submit", function(e){
                     console.log(err);
                 }
             });
-            
-        };
-           
+        };  
     })
     alert(`Votre commande a bien été envoyée  `)
     window.location.href = "confirm.html";

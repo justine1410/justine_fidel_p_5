@@ -105,7 +105,7 @@ function produit(){
     //fonction fenêtre popup//
     function popConfirm(){
       if(confirm(`${resultat.name} option :${option.value} a bien été ajouté au panier 
-      Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
+      Consultez le panier OK ou revenez à l'accueil ANNULER`)){
         window.location.href = "panier.html";
       }else{
         window.location.href = "index.html"

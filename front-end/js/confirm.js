@@ -6,11 +6,11 @@ console.log(valid);
 //--------------message de validation------------------//
 let merci = document.querySelector('.confirmation');
  merci.innerHTML = `           
- <h2>Votre commande a bien été validé. </h2><br/>
+ <h2>Votre commande a bien été validée. </h2><br/>
  <p>${valid.contact.firstName+" "+valid.contact.lastName}, votre commande n°${valid.orderId} sera bientôt envoyée</p>
- <p>Un mail vous sera envoyée à votre adresse mail : ${valid.contact.email}.</p>
+ <p>Un mail vous sera envoyé à votre adresse mail : ${valid.contact.email}.</p>
  <p>Nous vous remercions pour votre confiance</p>
- <p>A bientôt</p>
+ <p>À bientôt</p>
 `;
 
 
@@ -38,13 +38,7 @@ validation.forEach(function(produit){
     document.getElementById("total").innerHTML = total+ "€";
 });
 
-//--------------------------camera------------------
-
-
-
-
-
-
+//--------------------------camera-----------------
 
 //retour a l'acceuil
 let acceuil = document.querySelector(".acceuil")
