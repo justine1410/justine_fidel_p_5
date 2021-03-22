@@ -197,6 +197,7 @@ form.addEventListener("submit", function(e){
         city : document.querySelector("#city").value,
         email : document.querySelector("#email").value,
      };
+     localStorage.setItem("contact",JSON.stringify(contact));
 
     //selon type
     const types=["teddies","cameras","furniture"];//type des produits
@@ -210,6 +211,7 @@ form.addEventListener("submit", function(e){
                     products.push(element.idProduit);
                 }
             });
+            
             //Envoie vers le serveur//
             fetch("http://localhost:3000/api/teddies/order",{
                 method:"POST",
@@ -220,7 +222,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide", JSON.stringify(resultat));
+                    localStorage.setItem("valide1", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);
@@ -243,7 +245,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide", JSON.stringify(resultat));
+                    localStorage.setItem("valide2", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);
@@ -266,7 +268,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide", JSON.stringify(resultat));
+                    localStorage.setItem("valide3", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);

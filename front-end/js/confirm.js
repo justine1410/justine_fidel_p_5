@@ -1,42 +1,61 @@
 
-let valid = JSON.parse(localStorage.getItem("valide"));
+let valide1 = JSON.parse(localStorage.getItem("valide1"));
+let valide2 = JSON.parse(localStorage.getItem("valide2"));
+let valide3 = JSON.parse(localStorage.getItem("valide3"));
+let contact = JSON.parse(localStorage.getItem("contact"));
 let produit = JSON.parse(localStorage.getItem("produit"));
 
-console.log(valid);
 //--------------message de validation------------------//
 let merci = document.querySelector('.confirmation');
  merci.innerHTML = `           
  <h2>Votre commande a bien été validée. </h2><br/>
- <p>${valid.contact.firstName+" "+valid.contact.lastName}, votre commande n°${valid.orderId} sera bientôt envoyée</p>
- <p>Un mail vous sera envoyé à votre adresse mail : ${valid.contact.email}.</p>
+ <p>${contact.firstName+" "+contact.lastName}, votre commande  sera bientôt envoyée</p>
+ <p>Un mail vous sera envoyé à votre adresse mail : ${contact.email}.</p>
  <p>Nous vous remercions pour votre confiance</p>
  <p>À bientôt</p>
 `;
 
 
 //----------------recapitulation de la commande---------------//
-let numCommande = document.querySelector('.num-commande');
-numCommande.innerHTML=`
-Commande n° ${valid.orderId}
-`;
+if(valide1 !== null){
+    let numCommande = document.querySelector('.num-commande');
+    numCommande.innerHTML=`
+    Votre commande  porte le numero de commande <br/> ${valide1.orderId} <br/>
+    `;    
+}
+if(valide2 !== null){
+    let numCommande = document.querySelector('.num-commande');
+    numCommande.innerHTML=`
+    Votre commande  porte le numero de commande <br/> ${valide2.orderId} <br/>
+    `;    
+}
+if(valide3 !== null){
+    let numCommande = document.querySelector('.num-commande');
+    numCommande.innerHTML=`
+    Votre commande d'appareil photos porte le numero de commande <br/> ${valide3.orderId} <br/>
+    `;    
+}
+
 
 
 let validation = produit;
 total = 0;
-
-validation.forEach(function(produit){
+validation.forEach(function(e){
     document.getElementById("recap").insertAdjacentHTML("beforeend",`
     <div class="produit">
-        <img src=${produit.image} alt="teddy.1"/>
-        <h3 >${produit.name}</h3>
-        <p>qte : ${produit.quantite}</p>
-        <p >${produit.prix}€</p>
+        <img src=${e.image} alt="teddy.1"/>
+        <h3 >${e.name}</h3>
+        <p>qte : ${e.quantite}</p>
+        <p >${e.prix}€</p>
     </div>
     `
     );
-    total = total + produit.prix * produit.quantite;
+    total = total + e.prix * e.quantite;
     document.getElementById("total").innerHTML = total+ "€";
 });
+
+
+
 
 //--------------------------camera-----------------
 
