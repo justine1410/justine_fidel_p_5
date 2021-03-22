@@ -206,7 +206,9 @@ form.addEventListener("submit", function(e){
             //recuperation de l'idproduit//
             let  products= [];
             produitStorage.forEach(element=>{
-            products.push(element.idProduit);
+                if(element.type === types[0]){
+                    products.push(element.idProduit);
+                }
             });
         
             //Envoie vers le serveur//
@@ -229,7 +231,9 @@ form.addEventListener("submit", function(e){
             //recuperation de l'idproduit//
             let  products= [];
             produitStorage.forEach(element =>{
-                products.push(element.idProduit);
+                if(element.type === types[1]){
+                    products.push(element.idProduit);
+                }
             });
             console.log( products,contact);
             //Envoie vers le serveur// 
@@ -252,7 +256,9 @@ form.addEventListener("submit", function(e){
             //recuperation de l'idproduit//
             let  products= [];
             produitStorage.forEach(element =>{
-                products.push(element.idProduit);
+                if(element.type === types[2]){
+                    products.push(element.idProduit);
+                }
             });
             console.log( products,contact);
             //Envoie vers le serveur//
