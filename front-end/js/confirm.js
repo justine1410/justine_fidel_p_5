@@ -1,9 +1,9 @@
 
 let valid = JSON.parse(localStorage.getItem("valide"));
-let produit = JSON.parse(localStorage.getItem("produit"));
+let produit = JSON.parse(localStorage.getItem("produitcommande"));
 
 console.log(valid);
-
+//--------------message de validation------------------//
 let merci = document.querySelector('.confirmation');
  merci.innerHTML = `           
  <h2>Votre commande a bien été validé. </h2><br/>
@@ -13,6 +13,8 @@ let merci = document.querySelector('.confirmation');
  <p>A bientôt</p>
 `;
 
+
+//----------------recapitulation de la commande---------------//
 let numCommande = document.querySelector('.num-commande');
 numCommande.innerHTML=`
 Commande n° ${valid.orderId}
@@ -34,11 +36,18 @@ validation.forEach(function(produit){
     );
     total = total + produit.prix * produit.quantite;
     document.getElementById("total").innerHTML = total+ "€";
-
 });
 
-let acceuil = document.querySelector(".acceuil")
+//--------------------------camera------------------
 
+
+
+
+
+
+
+//retour a l'acceuil
+let acceuil = document.querySelector(".acceuil")
 console.log(acceuil);
 acceuil.addEventListener("click", function(e){
     e.preventDefault

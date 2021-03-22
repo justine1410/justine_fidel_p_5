@@ -204,36 +204,39 @@ form.addEventListener("submit", function(e){
     });
     
     console.log( products,contact);
-
+        
     //Envoie vers le serveur//
+    
     fetch("http://localhost:3000/api/teddies/order",{
-        method:"POST",
-        headers:{'Content-type':'application/json'},
-        body : JSON.stringify({contact,products}),
+    method:"POST",
+    headers:{'Content-type':'application/json'},
+    body : JSON.stringify({contact,products}),
     })
     .then(async (response) =>{
-      try{
+    try{
         const resultat = await response.json();
         console.log(resultat)
         localStorage.setItem("valide", JSON.stringify(resultat));
-        //localStorage.removeItem("produit")
-      }
-      catch (e){
+    }
+    catch (e){
         console.log(err);
-      }
+    }
     });
-    confirm(`Votre commande a bien été envoyée  `);
+    
+    let produitcommande = JSON.parse (localStorage.getItem("produitcommande"));
+    localStorage.setItem("produitcommande",JSON.stringify(produitStorage))
+    console.log(produitcommande);
+    localStorage.removeItem("produit")
+
+
+    alert(`Votre commande a bien été envoyée  `)
     window.location.href = "confirm.html";
-    }else {
-    confirm(`Tous les champs ne sont pas renseigné correctement `)
+    }else{
+    alert(`Tous les champs ne sont pas renseigné correctement `)
+    window.location.href = "";
+
     console.log(input.length);
     }
     
 });
-
-
-
-
-  
-
 

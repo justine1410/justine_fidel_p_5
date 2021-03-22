@@ -21,7 +21,7 @@ const url="http://localhost:3000/api/"+recup_type+"/"+recup_id;
   });
 
 //------------------affichage produit---------------------//
-//endoirt ou j' ajoute mes produits//
+//endroit ou j' ajoute mes produits//
 const carteProduits = document.getElementById("list-produits");
 
 //.....................produit choisie..................//
@@ -45,7 +45,9 @@ function produit(){
     </div>
   </div>
   ` ;
+  
   //je met les options du produit par rapport a son type//
+
   let choix= document.getElementById("choix");
   let structureOptions = [];  
   if(recup_type === "teddies"){
@@ -106,7 +108,8 @@ function produit(){
       Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
         window.location.href = "panier.html";
       }else{
-        window.location.href = "index.html";
+        window.location.href = "index.html"
+        localStorage.clear();
       }
     }  
     //je regarde si produit existe dans le local
@@ -118,7 +121,7 @@ function produit(){
           produit.quantite++;
           existe = true;
           return false;
-          console.log(existe);
+          
         }
       });
       if(!existe){

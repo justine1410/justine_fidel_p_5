@@ -17,6 +17,8 @@ const listeProduits = document.getElementById("list-produits");
      `
    };
  }
+ 
+
  //.....................requête.........................//
  function request(type){
   fetch("http://localhost:3000/api/"+type)
