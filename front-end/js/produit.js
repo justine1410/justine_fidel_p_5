@@ -19,7 +19,6 @@ const url="http://localhost:3000/api/"+recup_type+"/"+recup_id;
       console.log(e);
     }
   });
-
 //------------------affichage produit---------------------//
 //endroit ou j' ajoute mes produits//
 const carteProduits = document.getElementById("list-produits");
@@ -45,12 +44,12 @@ function produit(){
     </div>
   </div>
   ` ;
-  
+  console.log(resultat.lenses);
   //je met les options du produit par rapport a son type//
 
   let choix= document.getElementById("choix");
   let structureOptions = [];  
-  if(recup_type === "teddies"){
+  if(resultat.colors){
     let option = resultat.colors;
     choix.innerHTML="couleur";
     for (i=0; i<option.length; i++){
@@ -59,7 +58,7 @@ function produit(){
       `
     };  
   }
-  else if(recup_type === "cameras"){
+  else if(resultat.lenses){
     let option = resultat.lenses;
     choix.innerHTML="lentille";
     for (i=0; i<option.length; i++){
@@ -67,7 +66,7 @@ function produit(){
       <option value=${option[i]}>${option[i]}</option>
       `
     };  
-  }  else if(recup_type === "furniture"){
+  }  else if(resultat.varnish){
     let option = resultat.varnish;
     choix.innerHTML="vernis";
     for (i=0; i<option.length; i++){
@@ -96,8 +95,9 @@ function produit(){
         perso:option.value,
         quantite: 1,
         prix:resultat.price/100,
+        type : recup_type,
     };
-
+    
     //..........................Le local Storage.................//
     //Je crée un clé dans le localStorage//
     let produits = JSON.parse(localStorage.getItem("produit"));

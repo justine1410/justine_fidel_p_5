@@ -1,6 +1,6 @@
 
 let valid = JSON.parse(localStorage.getItem("valide"));
-let produit = JSON.parse(localStorage.getItem("produitcommande"));
+let produit = JSON.parse(localStorage.getItem("produit"));
 
 console.log(valid);
 //--------------message de validation------------------//

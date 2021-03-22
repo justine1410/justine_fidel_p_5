@@ -197,46 +197,90 @@ form.addEventListener("submit", function(e){
         city : document.querySelector("#city").value,
         email : document.querySelector("#email").value,
      };
-    //recuperation de l'idproduit//
-    let  products= [];
+
+    //selon type
+    const types=["teddies","cameras","furniture"];//type des produits
+    
     produitStorage.forEach(element =>{
-        products.push(element.idProduit);
-    });
-    
-    console.log( products,contact);
+        if(element.type === types[0]){
+            //recuperation de l'idproduit//
+            let  products= [];
+            produitStorage.forEach(element=>{
+            products.push(element.idProduit);
+            });
         
-    //Envoie vers le serveur//
-    
-    fetch("http://localhost:3000/api/teddies/order",{
-    method:"POST",
-    headers:{'Content-type':'application/json'},
-    body : JSON.stringify({contact,products}),
+            //Envoie vers le serveur//
+            fetch("http://localhost:3000/api/teddies/order",{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body : JSON.stringify({contact,products}),
+                })
+            .then(async (response) =>{
+                try{
+                    const resultat = await response.json();
+                    console.log(resultat)
+                    localStorage.setItem("valide", JSON.stringify(resultat));
+                }
+                catch (e){
+                    console.log(err);
+                }
+            });
+        }else if(element.type === types[1]){
+            //recuperation de l'idproduit//
+            let  products= [];
+            produitStorage.forEach(element =>{
+                products.push(element.idProduit);
+            });
+            console.log( products,contact);
+            //Envoie vers le serveur// 
+            fetch("http://localhost:3000/api/cameras/order",{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body : JSON.stringify({contact,products}),
+                })
+            .then(async (response) =>{
+                try{
+                    const resultat = await response.json();
+                    console.log(resultat)
+                    localStorage.setItem("valide", JSON.stringify(resultat));
+                }
+                catch (e){
+                    console.log(err);
+                }
+            });
+        }else{
+            //recuperation de l'idproduit//
+            let  products= [];
+            produitStorage.forEach(element =>{
+                products.push(element.idProduit);
+            });
+            console.log( products,contact);
+            //Envoie vers le serveur//
+            fetch("http://localhost:3000/api/furniture/order",{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body : JSON.stringify({contact,products}),
+                })
+            .then(async (response) =>{
+                try{
+                    const resultat = await response.json();
+                    console.log(resultat)
+                    localStorage.setItem("valide", JSON.stringify(resultat));
+                }
+                catch (e){
+                    console.log(err);
+                }
+            });
+            
+        };
+           
     })
-    .then(async (response) =>{
-    try{
-        const resultat = await response.json();
-        console.log(resultat)
-        localStorage.setItem("valide", JSON.stringify(resultat));
-    }
-    catch (e){
-        console.log(err);
-    }
-    });
-    
-    let produitcommande = JSON.parse (localStorage.getItem("produitcommande"));
-    localStorage.setItem("produitcommande",JSON.stringify(produitStorage))
-    console.log(produitcommande);
-    localStorage.removeItem("produit")
-
-
     alert(`Votre commande a bien été envoyée  `)
     window.location.href = "confirm.html";
     }else{
     alert(`Tous les champs ne sont pas renseigné correctement `)
     window.location.href = "";
-
-    console.log(input.length);
-    }
+    };
     
 });
 
