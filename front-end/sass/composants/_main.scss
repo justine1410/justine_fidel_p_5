@@ -244,6 +244,30 @@
     margin-left: 20%;;
     margin-bottom: 30px;
     padding:10px;
+    p{
+        text-align: center;
+    }
+    #recapTeddy{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom:45px;
+    }
+    #recapCam{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom:45px;
+
+    }
+    #recapFurn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom:45px;
+
+    }
+
    
 }
 #recap{

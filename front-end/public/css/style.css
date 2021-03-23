@@ -10229,6 +10229,27 @@ header .header-top a:hover {
   margin-bottom: 30px;
   padding: 10px;
 }
+.recap-commande p {
+  text-align: center;
+}
+.recap-commande #recapTeddy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.recap-commande #recapCam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.recap-commande #recapFurn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px;
+}
 
 #recap {
   display: flex;
