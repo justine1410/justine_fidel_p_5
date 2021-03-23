@@ -49,6 +49,7 @@ function affichPanier(produits) {
             let ajout = document.querySelector("#ajout"+element.idProduit);
                 ajout.addEventListener('click', function(e){               
                     element.quantite++
+                    localStorage.setItem("produit",JSON.stringify(produitStorage));
                     rafraichProduit()
                 });
            
@@ -56,6 +57,7 @@ function affichPanier(produits) {
             let supp= document.querySelector("#suppr"+element.idProduit);
                 supp.addEventListener('click', function(e){              
                     element.quantite--
+                    localStorage.setItem("produit",JSON.stringify(produitStorage));
                     rafraichProduit()
                     if(element.quantite < 1){
                         if(window.confirm("Vous allez retirez cet article!")){
@@ -206,11 +208,9 @@ form.addEventListener("submit", function(e){
         if(element.type === types[0]){
             //recuperation de l'idproduit//
             let  products= [];
-            produitStorage.forEach(element=>{
-                if(element.type === types[0]){
+               if(element.type === types[0]){
                     products.push(element.idProduit);
                 }
-            });
             
             //Envoie vers le serveur//
             fetch("http://localhost:3000/api/teddies/order",{
@@ -222,7 +222,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide1", JSON.stringify(resultat));
+                    localStorage.setItem("valideTeddy", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);
@@ -231,11 +231,9 @@ form.addEventListener("submit", function(e){
         }else if(element.type === types[1]){
             //recuperation de l'idproduit//
             let  products= [];
-            produitStorage.forEach(element =>{
                 if(element.type === types[1]){
                     products.push(element.idProduit);
                 }
-            });
             fetch("http://localhost:3000/api/cameras/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
@@ -245,7 +243,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide2", JSON.stringify(resultat));
+                    localStorage.setItem("valideCam", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);
@@ -254,11 +252,9 @@ form.addEventListener("submit", function(e){
         }else{
             //recuperation de l'idproduit//
             let  products= [];
-            produitStorage.forEach(element =>{
                 if(element.type === types[2]){
                     products.push(element.idProduit);
                 }
-            });
             fetch("http://localhost:3000/api/furniture/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
@@ -268,7 +264,7 @@ form.addEventListener("submit", function(e){
                 try{
                     const resultat = await response.json();
                     console.log(resultat)
-                    localStorage.setItem("valide3", JSON.stringify(resultat));
+                    localStorage.setItem("valideFurn", JSON.stringify(resultat));
                 }
                 catch (e){
                     console.log(err);

@@ -1,7 +1,7 @@
 
-let valide1 = JSON.parse(localStorage.getItem("valide1"));
-let valide2 = JSON.parse(localStorage.getItem("valide2"));
-let valide3 = JSON.parse(localStorage.getItem("valide3"));
+let valideTeddy = JSON.parse(localStorage.getItem("valideTeddy"));
+let valideCam = JSON.parse(localStorage.getItem("valideCam"));
+let valideFurn = JSON.parse(localStorage.getItem("valideFurn"));
 let contact = JSON.parse(localStorage.getItem("contact"));
 let produit = JSON.parse(localStorage.getItem("produit"));
 
@@ -17,22 +17,22 @@ let merci = document.querySelector('.confirmation');
 
 
 //----------------recapitulation de la commande---------------//
-if(valide1 !== null){
-    let numCommande = document.querySelector('.num-commande');
+if(valideTeddy !== null){
+    let numCommande = document.querySelector('.num-commandeTeddy');
     numCommande.innerHTML=`
-    Votre commande  porte le numero de commande <br/> ${valide1.orderId} <br/>
+    Votre commande d'ours en peluche porte le numero de commande <br/> ${valideTeddy.orderId} <br/>
     `;    
 }
-if(valide2 !== null){
-    let numCommande = document.querySelector('.num-commande');
+if(valideCam !== null){
+    let numCommande = document.querySelector('.num-commandeCam');
     numCommande.innerHTML=`
-    Votre commande  porte le numero de commande <br/> ${valide2.orderId} <br/>
+    Votre commande  d'appareil photos porte le numero de commande <br/> ${valideCam.orderId} <br/>
     `;    
 }
-if(valide3 !== null){
-    let numCommande = document.querySelector('.num-commande');
+if(valideFurn !== null){
+    let numCommande = document.querySelector('.num-commandeFurn');
     numCommande.innerHTML=`
-    Votre commande d'appareil photos porte le numero de commande <br/> ${valide3.orderId} <br/>
+    Votre commande  de meuble porte le numero de commande <br/> ${valideFurn.orderId} <br/>
     `;    
 }
 
@@ -41,23 +41,30 @@ if(valide3 !== null){
 let validation = produit;
 total = 0;
 validation.forEach(function(e){
-    document.getElementById("recap").insertAdjacentHTML("beforeend",`
-    <div class="produit">
-        <img src=${e.image} alt="teddy.1"/>
-        <h3 >${e.name}</h3>
-        <p>qte : ${e.quantite}</p>
-        <p >${e.prix}€</p>
-    </div>
-    `
-    );
+    function produitcommander(type){
+        document.getElementById("recap"+type).insertAdjacentHTML("beforeend",`
+        <div class="produit">
+            <img src=${e.image} alt="teddy.1"/>
+            <h3 >${e.name}</h3>
+            <p>qte : ${e.quantite}</p>
+            <p >${e.prix}€</p>
+        </div>
+        `
+        );
+
+    }
+    if(e.type == "teddies"){
+        produitcommander("Teddy")
+    }else if(e.type == "cameras"){
+        produitcommander("Cam")
+    }else if(e.type == "furniture"){
+        produitcommander("Furn")
+    }
+
     total = total + e.prix * e.quantite;
     document.getElementById("total").innerHTML = total+ "€";
 });
 
-
-
-
-//--------------------------camera-----------------
 
 //retour a l'acceuil
 let acceuil = document.querySelector(".acceuil")
