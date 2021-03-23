@@ -108,11 +108,7 @@ if(produitStorage == null || produitStorage == 0){
    affichPanier(produitStorage)
 };
 
-
-
-
 //----------------------------Validation du formulaire------------------//
-
 //les différentes regex
 const regfirstName = new RegExp('^[A-Za-z-éèê]+$');
 const reglastName = new RegExp('^[A-Za-z-éèê]+$');
@@ -208,9 +204,7 @@ form.addEventListener("submit", function(e){
         if(element.type === types[0]){
             //recuperation de l'idproduit//
             let  products= [];
-               if(element.type === types[0]){
-                    products.push(element.idProduit);
-                }
+            products.push(element.idProduit);
             
             //Envoie vers le serveur//
             fetch("http://localhost:3000/api/teddies/order",{
@@ -229,11 +223,8 @@ form.addEventListener("submit", function(e){
                 }
             });
         }else if(element.type === types[1]){
-            //recuperation de l'idproduit//
             let  products= [];
-                if(element.type === types[1]){
-                    products.push(element.idProduit);
-                }
+            products.push(element.idProduit);
             fetch("http://localhost:3000/api/cameras/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
@@ -250,11 +241,8 @@ form.addEventListener("submit", function(e){
                 }
             });
         }else{
-            //recuperation de l'idproduit//
             let  products= [];
-                if(element.type === types[2]){
-                    products.push(element.idProduit);
-                }
+            products.push(element.idProduit);
             fetch("http://localhost:3000/api/furniture/order",{
                 method:"POST",
                 headers:{'Content-type':'application/json'},
