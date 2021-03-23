@@ -1,7 +1,7 @@
 const types=["teddies","cameras","furniture"];//type des produits
+const listeProduits = document.getElementById("list-produits");
 
  //..................texte à ajouté....................//
-const listeProduits = document.getElementById("list-produits");
  function produit(choix,type){
    for(i=0; i<choix.length; i++){
      listeProduits.innerHTML = listeProduits.innerHTML+`
