@@ -9995,8 +9995,6 @@ header .header-top a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 #list-produits a {
   margin: 20px;
@@ -10308,6 +10306,13 @@ header .header-top a:hover {
     margin-left: 10%;
   }
 
+  .photos {
+    flex-wrap: wrap;
+  }
+  .photos img {
+    margin-bottom: 10px;
+  }
+
   #panier .panier {
     flex-direction: column;
   }
@@ -10361,6 +10366,7 @@ footer ul {
   align-items: center;
   background-color: #f3e9f1;
   height: 100px;
+  margin: 0;
 }
 footer ul li {
   list-style: none;
@@ -10399,32 +10405,50 @@ header .header-acceuil-présentation {
   margin-top: 40px;
   margin-bottom: 20px;
   text-align: center;
-  height: 150px;
+  height: 500px;
   border: solid;
   border-radius: 20px;
   border-color: #f3e9f1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 70%;
+  justify-content: space-around;
+  width: 90%;
   display: flex;
   align-items: center;
   box-shadow: 3px 4px 3px #c697bd;
 }
 header .header-acceuil-présentation .choix {
   display: flex;
-  width: 80%;
+  width: 90%;
   justify-content: space-around;
   margin-top: 10px;
 }
-header .header-acceuil-présentation .choix p {
-  border-color: #c697bd;
-  box-shadow: 3px 2px 2px #c697bd;
+header .header-acceuil-présentation .choix .teddy, header .header-acceuil-présentation .choix .cam, header .header-acceuil-présentation .choix .furn {
+  width: 30%;
+  height: 80%;
+  border-radius: 20px;
 }
-header .header-acceuil-présentation .choix p:hover {
-  background-color: #8f4e82;
+header .header-acceuil-présentation .choix .teddy:hover, header .header-acceuil-présentation .choix .cam:hover, header .header-acceuil-présentation .choix .furn:hover {
   box-shadow: 3px 4px 3px #c697bd;
   transform: scale(1.2);
+}
+header .header-acceuil-présentation .choix .teddy:hover p, header .header-acceuil-présentation .choix .cam:hover p, header .header-acceuil-présentation .choix .furn:hover p {
+  box-shadow: 3px 4px 3px #c697bd;
+  transform: scale(1.2);
+  background-color: #8f4e82;
+}
+header .header-acceuil-présentation .choix .teddy img, header .header-acceuil-présentation .choix .cam img, header .header-acceuil-présentation .choix .furn img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: solid;
+  border-color: #c697bd;
+  margin: 0;
+}
+header .header-acceuil-présentation .choix .teddy p, header .header-acceuil-présentation .choix .cam p, header .header-acceuil-présentation .choix .furn p {
+  margin-top: 20px;
+  border-color: #c697bd;
+  box-shadow: 3px 2px 2px #c697bd;
 }
 header .header-acceuil-présentation a {
   color: black;
@@ -10451,15 +10475,23 @@ header #list-produits img {
 /*****style mobile*****/
 @media screen and (min-width: 320px) and (max-width: 750px) {
   header .header-acceuil-présentation {
-    height: 250px;
+    height: 550px;
+    display: flex;
+    justify-content: end;
     width: 100%;
   }
   header .header-acceuil-présentation .choix {
     width: 100%;
     flex-wrap: wrap;
+    height: 350px;
   }
-  header .header-acceuil-présentation .choix p {
+  header .header-acceuil-présentation .choix .teddy, header .header-acceuil-présentation .choix .cam, header .header-acceuil-présentation .choix .furn {
     width: 40%;
+    height: 40%;
+    margin-bottom: 70px;
+  }
+  header .header-acceuil-présentation .choix .teddy img, header .header-acceuil-présentation .choix .cam img, header .header-acceuil-présentation .choix .furn img {
+    margin-top: 20px;
   }
 
   #list-produits {

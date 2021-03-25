@@ -20,33 +20,56 @@ header{
         margin-top:40px;
         margin-bottom:20px;
         text-align: center;
-        height: 150px;
+        height: 500px;
         border:solid;
         border-radius: 20px;
         border-color: $primary;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        width: 70%;
+        justify-content: space-around;
+        width: 90%;
         display: flex;
         align-items: center;
         box-shadow: 3px 4px 3px $primary-darken;
+       
         .choix{
             display:flex;
-            width:80%;
+            width:90%;
             justify-content: space-around;
             margin-top:10px;
-            p{
-                
-                border-color: $primary-darken;
-                box-shadow: 3px 2px 2px $primary-darken;
-                &:hover{
-                    background-color: $primary-hover;
+           .teddy, .cam, .furn{
+               width: 30%;
+               height: 80%;
+               border-radius: 20px;
+
+               &:hover{
+                box-shadow: 3px 4px 3px $primary-darken;
+                transform:scale(1.2);
+                p{
                     box-shadow: 3px 4px 3px $primary-darken;
                     transform:scale(1.2);
+                    background-color: $primary-hover;
+
+                }
+
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 20px;
+                    border: solid;
+                    border-color: $primary-darken;
+                    margin: 0;
+                }
+                p{
+                    margin-top: 20px;;
+                    border-color: $primary-darken;
+                    box-shadow: 3px 2px 2px $primary-darken;
+        
                 }
             }
         }
+
         a{
             color:black;
             margin-top:20px;
@@ -75,14 +98,22 @@ header{
                 /*****style mobile*****/
 @media screen and (min-width:320px) and (max-width:750px){
     header .header-acceuil-présentation{
-        height: 250px;
+        height: 550px;
+        display: flex;
+        justify-content: end;
         width: 100%;
         .choix{
             width: 100%;
             flex-wrap: wrap;
-
-            p{
-                width: 40%;;
+            height: 350px;
+            .teddy, .cam, .furn{
+                width: 40%;
+                height: 40%;
+                margin-bottom:70px;
+                img{
+                    margin-top:20px;
+                }
+    
             }
         }
         

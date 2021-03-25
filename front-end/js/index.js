@@ -35,21 +35,26 @@ const listeProduits = document.getElementById("list-produits");
 };
 
 //...............click pour produit apparaisse...........//
-let clickTeddy =  document.getElementById("teddyClick")
+//let clickTeddy =  document.getElementById("teddyClick")
+let clickTeddy = document.querySelector(".teddy")
  clickTeddy.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
    request(types[0]);
    console.log(types)//types[0] se réfere aux tableau ligne 1
  })
 
- let clikCam = document.getElementById("camClick")
- clikCam.addEventListener('click', function(){
+ //let clikCam = document.getElementById("camClick")
+ let clickCam = document.querySelector(".cam")
+
+ clickCam.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
    request(types[1]);//types[0] se réfere aux tableau ligne 1
  });
 
- let clikfurn = document.getElementById("furnClick")
- clikfurn.addEventListener('click', function(){
+ //let clikfurn = document.getElementById("furnClick")
+ let clickfurn = document.querySelector(".furn")
+
+ clickfurn.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
    request(types[2]);//types[0] se réfere aux tableau ligne 1
  });

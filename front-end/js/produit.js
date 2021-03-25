@@ -44,9 +44,9 @@ function produit(){
     </div>
   </div>
   ` ;
-  console.log(resultat.lenses);
-  //je met les options du produit par rapport a son type//
+  console.log(resultat.colors);
 
+  //je met les options du produit par rapport a son type//
   let choix= document.getElementById("choix");
   let structureOptions = [];  
   if(resultat.colors){
