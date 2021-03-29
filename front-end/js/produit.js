@@ -121,7 +121,6 @@ function produit(){
           produit.quantite++;
           existe = true;
           return false;
-          
         }
       });
       if(!existe){
@@ -131,11 +130,11 @@ function produit(){
       localStorage.setItem("produit", JSON.stringify(produits));
 
     }else{
-      produit =[];//je crée un tableau vide
-      produit.push(produitCommande);
-      localStorage.setItem("produit", JSON.stringify(produit)); 
+      produits =[];//je crée un tableau vide
+      produits.push(produitCommande);
+      localStorage.setItem("produit", JSON.stringify(produits)); 
     }
-    popConfirm()
+   popConfirm()
   });
 };
 

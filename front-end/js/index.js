@@ -33,7 +33,6 @@ const listeProduits = document.getElementById("list-produits");
     }
   });
 };
-
 //...............click pour produit apparaisse...........//
 //let clickTeddy =  document.getElementById("teddyClick")
 let clickTeddy = document.querySelector(".teddy")
@@ -53,7 +52,6 @@ let clickTeddy = document.querySelector(".teddy")
 
  //let clikfurn = document.getElementById("furnClick")
  let clickfurn = document.querySelector(".furn")
-
  clickfurn.addEventListener('click', function(){
    listeProduits.innerHTML= " ";
    request(types[2]);//types[0] se réfere aux tableau ligne 1

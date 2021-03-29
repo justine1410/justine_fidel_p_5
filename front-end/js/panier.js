@@ -37,7 +37,7 @@ function affichPanier(produits) {
                 <img class="${element.idProduit}" src="${element.image}" alt="teddy.1"/>
                 <div class="panier-texte">
                     <h3>${element.name}</h3>
-                    <p id="qte"><span id="suppr${element.idProduit}"  class="btn">-</span> <span class="qte">${element.quantite}</span> <span id="ajout${element.idProduit}" class="btn" id="btn">+</span> </p>
+                    <p id="qte"><span id="suppr${element.perso}"  class="btn">-</span> <span class="qte">${element.quantite}</span> <span id="ajout${element.perso}" class="btn" id="btn">+</span> </p>
                     <p class="descript">${element.perso}
                     <p class="prix">${element.prix*element.quantite}€</p>
                     <button id="btn~${element.idProduit}" class="vider">vider</button>
@@ -46,7 +46,7 @@ function affichPanier(produits) {
             `);  
     
             /**Ajout de produit**/
-            let ajout = document.querySelector("#ajout"+element.idProduit);
+            let ajout = document.querySelector("#ajout"+element.perso);
                 ajout.addEventListener('click', function(e){               
                     element.quantite++
                     localStorage.setItem("produit",JSON.stringify(produitStorage));
@@ -54,37 +54,47 @@ function affichPanier(produits) {
                 });
            
             //Suppression de produit
-            let supp= document.querySelector("#suppr"+element.idProduit);
+            let supp= document.querySelector("#suppr"+element.perso);
                 supp.addEventListener('click', function(e){              
                     element.quantite--
                     localStorage.setItem("produit",JSON.stringify(produitStorage));
                     rafraichProduit()
-                    if(element.quantite < 1){
-                        if(window.confirm("Vous allez retirez cet article!")){
-                          supprProduit(element.idProduit)
-                          document.location.reload();
-                        }
-                    }
+                   
                 });  
+                if(element.quantite < 1){
+                    if(window.confirm("Vous allez retirez cet article!")){
+                      supprProduit(element.idProduit)
+                      document.location.reload();
+                    }else{
+                        element.quantite++
+                        localStorage.setItem("produit",JSON.stringify(produitStorage));
+                        rafraichProduit()
+                    }
+                }
             
             //suppression des article avec la corbeille// 
             let suppr = document.querySelectorAll(".vider");
+            
             for (i=0; i<suppr.length; i++){
                 suppr[i].addEventListener('click',function(event){
-                    event.preventDefault();
+                    //event.preventDefault();
                     let tabId= event.target.id.split("~");
-                    let idSuppression = tabId[1];
-                    supprProduit(idSuppression);
-                    if( produitStorage ==0){
+                    let idSuppression =tabId[1];
+                    if( produitStorage.length == 1){
                         if(window.confirm("Vous allez retiez le dernier article!")){
+                        supprProduit(idSuppression)
                         document.getElementById("panier").insertAdjacentHTML("beforeend",`
                         <div class="header-presentation">
                             <h2>Votre panier est vide</h2>
                         </div>
-                        `,
+                        `,)
                         document.getElementById("total").innerHTML= "0 €"
-                        )};
-                    };                           
+                        }
+                    } else{
+                        supprProduit(idSuppression);
+
+                    }
+                         
                 });
             };
 
