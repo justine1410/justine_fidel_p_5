@@ -64,7 +64,11 @@ function affichPanier(produits) {
                 if(element.quantite < 1){
                     if(window.confirm("Vous allez retirez cet article!")){
                       supprProduit(element.idProduit)
-                      document.location.reload();
+                      document.getElementById("panier").insertAdjacentHTML("beforeend",`
+                      <div class="header-presentation">
+                          <h2>Votre panier est vide</h2>
+                      </div>
+                      `)
                     }else{
                         element.quantite++
                         localStorage.setItem("produit",JSON.stringify(produitStorage));

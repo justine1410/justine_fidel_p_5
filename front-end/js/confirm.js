@@ -53,7 +53,7 @@ validation.forEach(function(e){
         );
 
     }
-    
+
     if(e.type == "teddies"){
         produitcommander("Teddy")
     }else if(e.type == "cameras"){
