@@ -47,33 +47,29 @@ function produit(){
   console.log(resultat.colors);
 
   //je met les options du produit par rapport a son type//
+function affichOption(option){
+  for (i=0; i<option.length; i++){
+    structureOptions =structureOptions+ `
+    <option value=${option[i]}>${option[i]}</option>
+    `
+  };  
+}
   let choix= document.getElementById("choix");
   let structureOptions = [];  
   if(resultat.colors){
     let option = resultat.colors;
     choix.innerHTML="couleur";
-    for (i=0; i<option.length; i++){
-      structureOptions =structureOptions+ `
-      <option value=${option[i]}>${option[i]}</option>
-      `
-    };  
+    affichOption (option)
   }
   else if(resultat.lenses){
     let option = resultat.lenses;
     choix.innerHTML="lentille";
-    for (i=0; i<option.length; i++){
-      structureOptions =structureOptions+ `
-      <option value=${option[i]}>${option[i]}</option>
-      `
-    };  
+    affichOption (option)
   }  else if(resultat.varnish){
     let option = resultat.varnish;
     choix.innerHTML="vernis";
-    for (i=0; i<option.length; i++){
-      structureOptions =structureOptions+ `
-      <option value=${option[i]}>${option[i]}</option>
-      `
-    };  
+    affichOption (option)
+
   }
 
   const option = document.querySelector("#perso")

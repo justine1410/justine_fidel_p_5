@@ -62,19 +62,10 @@ function affichPanier(produits) {
                    
                 });  
                 if(element.quantite < 1){
-                    if(window.confirm("Vous allez retirez cet article!")){
-                      supprProduit(element.idProduit)
-                      document.getElementById("panier").insertAdjacentHTML("beforeend",`
-                      <div class="header-presentation">
-                          <h2>Votre panier est vide</h2>
-                      </div>
-                      `)
-                    }else{
-                        element.quantite++
-                        localStorage.setItem("produit",JSON.stringify(produitStorage));
-                        rafraichProduit()
-                    }
-                }
+                    alert("Vous avez retiré cet article!")
+                    supprProduit(element.idProduit)    
+                   document.location.reload()           
+                };
             
             //suppression des article avec la corbeille// 
             let suppr = document.querySelectorAll(".vider");
@@ -148,8 +139,10 @@ for(let i=0; i<input.length; i++){
         function message(boolean, ok, erreur){
             if(boolean == true){
                 p[i].innerHTML = ok;
+                p[i].style.color="green";
             }else{
                 p[i].innerHTML = erreur;
+                p[i].style.color="red"
             }
         }
         //verification des champs
@@ -210,68 +203,38 @@ form.addEventListener("submit", function(e){
         email : document.querySelector("#email").value,
      };
      localStorage.setItem("contact",JSON.stringify(contact));
-
     //selon type
     const types=["teddies","cameras","furniture"];//type des produits
-    
+    const key = ["valideTeddy","valideCam","valideFurn"];
+
+
     produitStorage.forEach(element =>{
+        function request(types,key){
+            let  products= [];
+            products.push(element.idProduit);
+            fetch("http://localhost:3000/api/"+types+"/order",{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body : JSON.stringify({contact,products}),
+                })
+            .then(async (response) =>{
+                try{
+                    const resultat = await response.json();
+                    console.log(resultat)
+                    localStorage.setItem(key, JSON.stringify(resultat));
+                }
+                catch (e){
+                    console.log(err);
+                }
+            });
+        } 
+    
         if(element.type === types[0]){
-            //recuperation de l'idproduit//
-            let  products= [];
-            products.push(element.idProduit);
-            
-            //Envoie vers le serveur//
-            fetch("http://localhost:3000/api/teddies/order",{
-                method:"POST",
-                headers:{'Content-type':'application/json'},
-                body : JSON.stringify({contact,products}),
-                })
-            .then(async (response) =>{
-                try{
-                    const resultat = await response.json();
-                    console.log(resultat)
-                    localStorage.setItem("valideTeddy", JSON.stringify(resultat));
-                }
-                catch (e){
-                    console.log(err);
-                }
-            });
+           request(types[0], key[0])
         }else if(element.type === types[1]){
-            let  products= [];
-            products.push(element.idProduit);
-            fetch("http://localhost:3000/api/cameras/order",{
-                method:"POST",
-                headers:{'Content-type':'application/json'},
-                body : JSON.stringify({contact,products}),
-                })
-            .then(async (response) =>{
-                try{
-                    const resultat = await response.json();
-                    console.log(resultat)
-                    localStorage.setItem("valideCam", JSON.stringify(resultat));
-                }
-                catch (e){
-                    console.log(err);
-                }
-            });
+            request(types[1], key[1])
         }else{
-            let  products= [];
-            products.push(element.idProduit);
-            fetch("http://localhost:3000/api/furniture/order",{
-                method:"POST",
-                headers:{'Content-type':'application/json'},
-                body : JSON.stringify({contact,products}),
-                })
-            .then(async (response) =>{
-                try{
-                    const resultat = await response.json();
-                    console.log(resultat)
-                    localStorage.setItem("valideFurn", JSON.stringify(resultat));
-                }
-                catch (e){
-                    console.log(err);
-                }
-            });
+            request(types[2], key[2])
         };  
     })
     alert(`Votre commande a bien été envoyée  `)
